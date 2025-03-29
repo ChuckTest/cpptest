@@ -67,7 +67,8 @@ int main()
 	start = clock();
 	for (x = 2; x <= 90000; x++)
 	{
-		for (i = 2; i <= sqrt(x); i++)
+		int sqrtX = sqrt(x); // Precompute sqrt(x) to avoid repeated calls
+		for (i = 2; i <= sqrtX; i++)
 			if (x % i == 0)
 			{
 				n++;
@@ -86,14 +87,25 @@ int main()
 
 	for (x = 2; x <= 90000; x++)
 	{
-		bool isPrime = true; // Assume x is prime unless proven otherwise
-		int sqrtX = sqrt(x); // Precompute sqrt(x) to avoid repeated calls
+		if (x == 2)
+		{
+			num++; // 2 is prime, directly count it
+			continue;
+		}
+		if (x % 2 == 0)
+		{
+			continue; // Skip even numbers
+		}
 
-		for (i = 2; i <= sqrtX; i++)
+		bool isPrime = true; // Assume x is prime unless proven otherwise
+		int sqrtX = sqrt(x); // Precompute sqrt(x)
+
+		// Check divisibility from 3 to sqrt(x), only for odd numbers
+		for (i = 3; i <= sqrtX; i += 2)
 		{
 			if (x % i == 0)
-			{ // If x is divisible by i, it's not prime
-				isPrime = false;
+			{
+				isPrime = false; // Not prime if divisible by i
 				break;
 			}
 		}
