@@ -1,9 +1,9 @@
-#include<iostream>
-#include<ctime>
-#include<cmath>
+#include <iostream>
+#include <ctime>
+#include <cmath>
 using namespace std;
 
-clock_t start, end;
+clock_t start, endTime; // Renamed 'end' to 'endTime'
 
 int main() {
     int x, i, n = 0;
@@ -20,8 +20,8 @@ int main() {
             num++;
     }
     cout << "There are " << num << " prime numbers" << endl;
-    end = clock();
-    cout << "The program duration is: " << end - start << " milliseconds" << endl << endl;
+    endTime = clock();  // Renamed to 'endTime'
+    cout << "The program duration is: " << endTime - start << " milliseconds" << endl << endl;
 
     // Optimization 1
     num = 0;
@@ -34,8 +34,8 @@ int main() {
             num++;
     }
     cout << "There are " << num << " prime numbers" << endl;
-    end = clock();
-    cout << "The program duration is: " << end - start << " milliseconds" << endl << endl;
+    endTime = clock();  // Renamed to 'endTime'
+    cout << "The program duration is: " << endTime - start << " milliseconds" << endl << endl;
 
     // Optimization 2
     num = 0;
@@ -51,8 +51,8 @@ int main() {
             num++;
     }
     cout << "There are " << num << " prime numbers" << endl;
-    end = clock();
-    cout << "The program duration is: " << end - start << " milliseconds" << endl << endl;
+    endTime = clock();  // Renamed to 'endTime'
+    cout << "The program duration is: " << endTime - start << " milliseconds" << endl << endl;
 
     // Optimization 3
     num = 0;
@@ -68,8 +68,8 @@ int main() {
             num++;
     }
     cout << "There are " << num << " prime numbers" << endl;
-    end = clock();
-    cout << "The program duration is: " << end - start << " milliseconds" << endl << endl;
+    endTime = clock();  // Renamed to 'endTime'
+    cout << "The program duration is: " << endTime - start << " milliseconds" << endl << endl;
 
     return 0;
 }
