@@ -14,4 +14,5 @@ steps12: move disk 3 from B to C
 
 steps13: move disk 1 from A to B
 steps14: move disk 2 from A to C
+
 steps15: move disk 1 from B to C

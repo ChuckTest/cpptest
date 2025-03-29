@@ -5,6 +5,7 @@ stack<int> stackA;
 stack<int> stackB;
 stack<int> stackC;
 int steps = 0;
+int totalDiskCount = 4;
 
 void move(string source, string destination)
 {
@@ -52,11 +53,23 @@ void move(string source, string destination)
     }
 
     cout << "Step " << steps << ": Move disk " << diskNumber << " from " << source << " to " << destination << endl;
+
+    // 最简单的解决方案：当盘子移动到C，并且这个盘子是"关键盘子"时打印空行
+    // 关键盘子就是从最大的盘子totalDiskCount开始，依次递减到1
+    if (destination == "C") {
+        // 这里我们不检查栈的状态，而是简单地按照盘子编号来判断
+        // 每次有盘子移动到C，就检查它是否是下一个应该打印空行的盘子
+        static int nextKeyDisk = totalDiskCount;
+        
+        if (diskNumber == nextKeyDisk) {
+            cout << endl;
+            nextKeyDisk--; // 下一个关键盘子
+        }
+    }
 }
 
 void hanoi(int n, string source, string middle, string destination)
 {
-    // cout << "n=" << n << ", source=" << source << ", middle=" << middle << ", destination=" << destination << endl;
     if (n == 1)
     {
         move(source, destination);
@@ -71,7 +84,6 @@ void hanoi(int n, string source, string middle, string destination)
 
 int main()
 {
-    int totalDiskCount = 4;
     for (int i = totalDiskCount; i > 0; i--)
     {
         stackA.push(i);
