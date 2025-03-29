@@ -10,45 +10,53 @@ void move(string source, string destination)
 {
     steps++;
     int diskNumber = 0;
-    if (source == "A")
+    // 从源栈获取盘子
+    if (source == "A" && !stackA.empty())
     {
         diskNumber = stackA.top();
         stackA.pop();
     }
-
-    if (source == "B")
+    else if (source == "B" && !stackB.empty())
     {
         diskNumber = stackB.top();
         stackB.pop();
     }
-
-    if (source == "C")
+    else if (source == "C" && !stackC.empty())
     {
         diskNumber = stackC.top();
         stackC.pop();
     }
+    else
+    {
+        cerr << "Error: Trying to move from an empty stack!" << endl;
+        return;
+    }
 
+    // 放入目标栈
     if (destination == "A")
     {
         stackA.push(diskNumber);
     }
-
-    if (destination == "B")
+    else if (destination == "B")
     {
         stackB.push(diskNumber);
     }
-
-    if (destination == "C")
+    else if (destination == "C")
     {
         stackC.push(diskNumber);
     }
+    else
+    {
+        cerr << "Error: Invalid destination!" << endl;
+        return;
+    }
 
-    cout << "steps" << steps << ": move disk " << diskNumber << " from " << source << " to " << destination << endl;
+    cout << "Step " << steps << ": Move disk " << diskNumber << " from " << source << " to " << destination << endl;
 }
 
 void hanoi(int n, string source, string middle, string destination)
 {
-    //cout << "n=" << n << ", source=" << source << ", middle=" << middle << ", destination=" << destination << endl;
+    // cout << "n=" << n << ", source=" << source << ", middle=" << middle << ", destination=" << destination << endl;
     if (n == 1)
     {
         move(source, destination);
