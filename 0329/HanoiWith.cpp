@@ -1,16 +1,20 @@
 #include <iostream>
 using namespace std;
+int diskNumber;
+int diskCount = 2;
+int steps = 0;
 
 void move(int n, string source, string destination)
 {
-    cout << "move from " << source << " to " << destination << endl;
+    steps++;
+    cout << "steps" << steps << ": move " << n << " from " << source << " to " << destination << endl;
 }
 
 void hanoi(int n, string source, string middle, string destination)
 {
     if (n == 1)
     {
-        move(n, source, destination);
+        move(diskCount, source, destination);
     }
     else
     {
@@ -22,6 +26,6 @@ void hanoi(int n, string source, string middle, string destination)
 
 int main()
 {
-    hanoi(3, "A", "B", "C");
+    hanoi(diskCount, "A", "B", "C");
     return 0;
 }
