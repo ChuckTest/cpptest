@@ -21,7 +21,7 @@ int main() {
     }
     cout << "There are " << num << " prime numbers" << endl;
     endTime = clock();  // Renamed to 'endTime'
-    cout << "The program duration is: " << endTime - start << " milliseconds" << endl << endl;
+    cout << "The original program duration is: " << endTime - start << " milliseconds" << endl << endl;
 
     // Optimization 1
     num = 0;
@@ -35,7 +35,7 @@ int main() {
     }
     cout << "There are " << num << " prime numbers" << endl;
     endTime = clock();  // Renamed to 'endTime'
-    cout << "The program duration is: " << endTime - start << " milliseconds" << endl << endl;
+    cout << "The program V1 duration is: " << endTime - start << " milliseconds" << endl << endl;
 
     // Optimization 2
     num = 0;
@@ -52,7 +52,7 @@ int main() {
     }
     cout << "There are " << num << " prime numbers" << endl;
     endTime = clock();  // Renamed to 'endTime'
-    cout << "The program duration is: " << endTime - start << " milliseconds" << endl << endl;
+    cout << "The program V2 duration is: " << endTime - start << " milliseconds" << endl << endl;
 
     // Optimization 3
     num = 0;
@@ -69,7 +69,7 @@ int main() {
     }
     cout << "There are " << num << " prime numbers" << endl;
     endTime = clock();  // Renamed to 'endTime'
-    cout << "The program duration is: " << endTime - start << " milliseconds" << endl << endl;
+    cout << "The program V3 duration is: " << endTime - start << " milliseconds" << endl << endl;
 
     return 0;
 }
