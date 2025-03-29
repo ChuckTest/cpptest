@@ -22,6 +22,6 @@ void hanoi(int n, string source, string middle, string destination)
 
 int main()
 {
-    hanoi(2, "A", "B", "C");
+    hanoi(3, "A", "B", "C");
     return 0;
 }
