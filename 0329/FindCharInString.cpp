@@ -4,7 +4,7 @@ using namespace std;
 char FindCharInString(string str)
 {
     int size = str.size();
-    char result;
+    char result='\0';
     int start = 0;
     int count = 0;
     bool flag = true;
@@ -17,6 +17,7 @@ char FindCharInString(string str)
             if (result == str[j] && i != j)
             {
                 flag = false;
+                result='\0';
                 break;
             }
         }
@@ -30,8 +31,13 @@ char FindCharInString(string str)
 
 int main()
 {
-    string str = "abadacdeeffi";
+    //string str = "abadacdeeffi";
+    string str = "aabbcc";
     char result = FindCharInString(str);
-    cout << result << endl;
+    if(result!='\0'){
+        cout << result << endl;}
+    else{
+        cout << "Can not find" << endl;
+    }
     return 0;
 }
