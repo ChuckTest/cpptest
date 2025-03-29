@@ -1,25 +1,30 @@
 #include <iostream>
 using namespace std;
- 
-// 查找第一个只出现一次的字符
-char firstNotRepeatingChar(char str[]) {
-    // 假设字符集为 ASCII，共 256 个字符
+
+// Find the first character that appears only once
+char firstNotRepeatingChar(char str[])
+{
+    // Assume the character set is ASCII with 256 characters
     int count[256] = {0};
 
-    // 计算字符串长度
+    // Calculate the length of the string
     int len = 0;
-    while (str[len] != '\0') {
+    while (str[len] != '\0')
+    {
         len++;
     }
 
-    // 第一次遍历字符串，统计每个字符的出现次数
-    for (int i = 0; i < len; ++i) {
+    // First pass through the string to count the occurrences of each character
+    for (int i = 0; i < len; ++i)
+    {
         count[str[i]]++;
     }
 
-    // 第二次遍历字符串，找到第一个只出现一次的字符
-    for (int i = 0; i < len; ++i) {
-        if (count[str[i]] == 1) {
+    // Second pass through the string to find the first character that appears only once
+    for (int i = 0; i < len; ++i)
+    {
+        if (count[str[i]] == 1)
+        {
             return str[i];
         }
     }
@@ -27,13 +32,14 @@ char firstNotRepeatingChar(char str[]) {
     return '\0';
 }
 
-int main() {
+int main()
+{
     char str[] = "abadacdeeffi";
     char result = firstNotRepeatingChar(str);
     if (result != '\0') {
-        cout << "第一个只出现一次的字符是: " << result << endl;
+        cout << "The first character that appears only once is: " << result << endl;
     } else {
-        cout << "没有只出现一次的字符。" << endl;
+        cout << "There is no character that appears only once." << endl;
     }
     return 0;
-}    
+}
