@@ -1,31 +1,32 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main()
 {
-    int i = 0;
+    int i = 1;
     while (true)
     {
         i++;
+        // cout << i << endl;
         if (i > 1000)
         {
             break;
         }
         int count = 0;
-        for (int j = 1; j <= i; j++)
+        double sqrtDoubleNumber = sqrt(i);
+        int sqrtIntegerNumber = ceil(sqrtDoubleNumber);
+        bool isPrime = true;
+        for (int j = 1; j <= sqrtIntegerNumber; j++)
         {
-            if (i % j == 0)
+            if (i % j == 0 && j != 1 && j != i)
             {
-                count++;
-            }
-            if (count > 2)
-            {
-                break;
+                isPrime = false;
             }
         }
-        if (count == 2)
+        if (isPrime)
         {
-            cout << i << endl;
+            cout << i << " is a prime number" << endl;
         }
     }
     return 0;
