@@ -1,19 +1,19 @@
-// µİ¹éÊµÏÖººÅµËş³ÌĞò 
+// é€’å½’å®ç°æ±‰è¯ºå¡”ç¨‹åº 
 #include <iostream> 
 using namespace std;
 void move(char, char);
-long steps=0;//¼ÇÂ¼ÒÆ¶¯µÄ²½Êı 
-void hannuo(char A, char B, char C, int n){//½«n¸öÅÌ×Ó´ÓAÕë£¬½èÖúBÕë£¬·Åµ½CÕëÉÏ 
+long steps=0;//è®°å½•ç§»åŠ¨çš„æ­¥æ•° 
+void hannuo(char A, char B, char C, int n){//å°†nä¸ªç›˜å­ä»Aé’ˆï¼Œå€ŸåŠ©Bé’ˆï¼Œæ”¾åˆ°Cé’ˆä¸Š 
 	if(n==1)
 		move(A, C);
 	else{
-		hannuo(A, C, B, n-1);// ÏÈ½«n-1¸öÅÌ×Ó´ÓAÕë£¬½èÖúCÕë£¬·Åµ½BÕëÉÏ 
-		move(A, C);//½«µÚn¸öÅÌ×Ó´ÓAÕëÒÆ¶¯µ½CÕëÉÏ 
-		hannuo(B, A, C, n-1);// È»ºó½«n-1¸öÅÌ×Ó´ÓBÕë£¬½èÖúAÕë£¬·Åµ½CÕëÉÏ 
+		hannuo(A, C, B, n-1);// å…ˆå°†n-1ä¸ªç›˜å­ä»Aé’ˆï¼Œå€ŸåŠ©Cé’ˆï¼Œæ”¾åˆ°Bé’ˆä¸Š 
+		move(A, C);//å°†ç¬¬nä¸ªç›˜å­ä»Aé’ˆç§»åŠ¨åˆ°Cé’ˆä¸Š 
+		hannuo(B, A, C, n-1);// ç„¶åå°†n-1ä¸ªç›˜å­ä»Bé’ˆï¼Œå€ŸåŠ©Aé’ˆï¼Œæ”¾åˆ°Cé’ˆä¸Š 
 	}
 } 
 
-void move(char A, char B){//´ÓAÕëÒÆ¶¯Ò»¸öÅÌ×Óµ½BÕëÉÏ 
+void move(char A, char B){//ä»Aé’ˆç§»åŠ¨ä¸€ä¸ªç›˜å­åˆ°Bé’ˆä¸Š 
 	cout<<"move "<<A<<" to "<<B<<endl;
 	steps++; 
 }
@@ -22,5 +22,5 @@ int main(){
 	cout<<"Please input the num of Disks:";
 	cin>>n;
 	hannuo('A', 'B', 'C', n);
-	cout<<n<<"¸öÅÌ×ÓµÄººÅµËş£¬ĞèÒª"<<steps<<"²½¿ÉÒÔÍê³É¡£"<<endl; 
+	cout<<n<<"ä¸ªç›˜å­çš„æ±‰è¯ºå¡”ï¼Œéœ€è¦"<<steps<<"æ­¥å¯ä»¥å®Œæˆã€‚"<<endl; 
 } 

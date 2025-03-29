@@ -8,7 +8,7 @@ clock_t start, end;
 int main() {
 	int x,i,n=0;
 	int num=0;
-	//³£¹æ½â·¨
+	//å¸¸è§„è§£æ³•
 	start=clock();
 	for(x=2; x<=90000; x++) {
 		n=0;
@@ -18,11 +18,11 @@ int main() {
 		if(n==2) 
 			num ++; 
 	}
-	cout<<"¹²ÓÐ"<<num<<"¸öÖÊÊý"<<endl;
+	cout<<"å…±æœ‰"<<num<<"ä¸ªè´¨æ•°"<<endl;
 	end=clock();
-	cout << "³ÌÐò³ÖÐøÊ±¼äÎª£º" <<end-start<<"ºÁÃë"<<endl<<endl;
+	cout << "ç¨‹åºæŒç»­æ—¶é—´ä¸ºï¼š" <<end-start<<"æ¯«ç§’"<<endl<<endl;
 	
-	//ÓÅ»¯1
+	//ä¼˜åŒ–1
 	num=0;
 	start=clock();
 	for(x=2; x<=90000; x++) {
@@ -32,11 +32,11 @@ int main() {
 		if(i==x)
 			num ++;
 	}
-	cout<<"¹²ÓÐ"<<num<<"¸öÖÊÊý"<<endl;
+	cout<<"å…±æœ‰"<<num<<"ä¸ªè´¨æ•°"<<endl;
 	end=clock();
-	cout << "³ÌÐò³ÖÐøÊ±¼äÎª£º" <<end-start<<"ºÁÃë"<<endl<<endl;
+	cout << "ç¨‹åºæŒç»­æ—¶é—´ä¸ºï¼š" <<end-start<<"æ¯«ç§’"<<endl<<endl;
 	
-	//ÓÅ»¯2
+	//ä¼˜åŒ–2
 	num=0;
 	start=clock();
 	for(x=2; x<=90000; x++) {
@@ -49,11 +49,11 @@ int main() {
 		if(n==0) 
 			num ++;
 	}
-	cout<<"¹²ÓÐ"<<num<<"¸öÖÊÊý"<<endl;
+	cout<<"å…±æœ‰"<<num<<"ä¸ªè´¨æ•°"<<endl;
 	end=clock();
-	cout << "³ÌÐò³ÖÐøÊ±¼äÎª£º" <<end-start<<"ºÁÃë"<<endl<<endl;
+	cout << "ç¨‹åºæŒç»­æ—¶é—´ä¸ºï¼š" <<end-start<<"æ¯«ç§’"<<endl<<endl;
 	
-	//ÓÅ»¯3
+	//ä¼˜åŒ–3
 	num=0;
 	start=clock(); 
 	for(x=2; x<=90000; x++) {
@@ -66,9 +66,9 @@ int main() {
 		if(n==0)
 			num ++;
 	}
-	cout<<"¹²ÓÐ"<<num<<"¸öÖÊÊý"<<endl;
+	cout<<"å…±æœ‰"<<num<<"ä¸ªè´¨æ•°"<<endl;
 	end=clock();
-	cout << "³ÌÐò³ÖÐøÊ±¼äÎª£º" <<end-start<<"ºÁÃë"<<endl<<endl;
+	cout << "ç¨‹åºæŒç»­æ—¶é—´ä¸ºï¼š" <<end-start<<"æ¯«ç§’"<<endl<<endl;
 	
 	return 0;
 }
