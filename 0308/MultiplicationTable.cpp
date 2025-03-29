@@ -9,9 +9,9 @@ int main()
     {
         for (int j = 1; j <= i; j++)
         {
-            string str = to_string(j) + "x" + to_string(i) + "=" + to_string(i * j);
-            cout << left << setw(7) << str;
-            // cout << j << "x" << i << "=" << i * j<<"  ";
+            //string str = to_string(j) + "x" + to_string(i) + "=" + to_string(i * j);
+            //cout << left << setw(7) << str;
+            cout << j << "x" << i << "=" << i * j<<"\t";
         }
         cout << endl;
     }
