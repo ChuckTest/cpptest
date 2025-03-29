@@ -7,6 +7,7 @@ stack<int> stackB;
 stack<int> stackC;
 int steps = 0;
 int totalDiskCount = 4;
+int nextKeyDisk = totalDiskCount;
 
 void move(string source, string destination)
 {
@@ -61,8 +62,6 @@ void move(string source, string destination)
     if (destination == "C") {
         // We do not check the stack state here, but simply check by disk number
         // Each time a disk is moved to C, we check if it is the next key disk that should trigger a newline
-        static int nextKeyDisk = totalDiskCount;
-        
         if (diskNumber == nextKeyDisk) {
             cout << endl;
             nextKeyDisk--; // Move to the next key disk
