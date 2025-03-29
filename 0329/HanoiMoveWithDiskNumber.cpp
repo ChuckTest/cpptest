@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 using namespace std;
+
 stack<int> stackA;
 stack<int> stackB;
 stack<int> stackC;
@@ -11,7 +12,8 @@ void move(string source, string destination)
 {
     steps++;
     int diskNumber = 0;
-    // 从源栈获取盘子
+
+    // Get disk from source stack
     if (source == "A" && !stackA.empty())
     {
         diskNumber = stackA.top();
@@ -33,7 +35,7 @@ void move(string source, string destination)
         return;
     }
 
-    // 放入目标栈
+    // Place the disk into the destination stack
     if (destination == "A")
     {
         stackA.push(diskNumber);
@@ -54,16 +56,16 @@ void move(string source, string destination)
 
     cout << "Step " << steps << ": Move disk " << diskNumber << " from " << source << " to " << destination << endl;
 
-    // 最简单的解决方案：当盘子移动到C，并且这个盘子是"关键盘子"时打印空行
-    // 关键盘子就是从最大的盘子totalDiskCount开始，依次递减到1
+    // Simplest solution: Print a newline when a disk is moved to C and it is a "key disk"
+    // A key disk is defined as starting from the largest disk (totalDiskCount) and decrementing to 1
     if (destination == "C") {
-        // 这里我们不检查栈的状态，而是简单地按照盘子编号来判断
-        // 每次有盘子移动到C，就检查它是否是下一个应该打印空行的盘子
+        // We do not check the stack state here, but simply check by disk number
+        // Each time a disk is moved to C, we check if it is the next key disk that should trigger a newline
         static int nextKeyDisk = totalDiskCount;
         
         if (diskNumber == nextKeyDisk) {
             cout << endl;
-            nextKeyDisk--; // 下一个关键盘子
+            nextKeyDisk--; // Move to the next key disk
         }
     }
 }
