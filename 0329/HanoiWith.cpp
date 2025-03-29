@@ -63,7 +63,7 @@ void hanoi(int n, string source, string middle, string destination)
 
 int main()
 {
-    int totalDiskCount = 3;
+    int totalDiskCount = 4;
     for (int i = totalDiskCount; i > 0; i--)
     {
         stackA.push(i);
