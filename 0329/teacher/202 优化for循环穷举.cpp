@@ -67,6 +67,7 @@ int main()
 	start = clock();
 	for (x = 2; x <= 90000; x++)
 	{
+		n = 0;
 		int sqrtX = sqrt(x); // Precompute sqrt(x) to avoid repeated calls
 		for (i = 2; i <= sqrtX; i++)
 			if (x % i == 0)
