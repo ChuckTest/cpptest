@@ -3,7 +3,7 @@ using namespace std;
 
 void move(string source, string destination)
 {
-    cout << "move from " << source << " to " << destination;
+    cout << "move from " << source << " to " << destination << endl;
 }
 
 void hanoi(int n, string source, string middle, string destination)
@@ -22,6 +22,6 @@ void hanoi(int n, string source, string middle, string destination)
 
 int main()
 {
-    hanoi(1, "A", "B", "C");
+    hanoi(2, "A", "B", "C");
     return 0;
 }
