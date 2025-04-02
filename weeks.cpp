@@ -39,8 +39,8 @@ Date getCurrentDate() {
     // Here we assume the current date is 2025-04-02
     Date today;
     today.year = 2025;
-    today.month = 4;
-    today.day = 2;
+    today.month = 6;
+    today.day = 7;
     return today;
 }
 
@@ -113,7 +113,7 @@ void printWeeklyDateRanges() {
         
         std::string currentWeekIndicator = (currentWeekCount == weekNumber) ? " ← CURRENT WEEK" : "";
         
-        std::cout << "Week " << currentWeekCount << ": " 
+        std::cout << "Week " << std::setw(2) << std::setfill('0') << currentWeekCount << ": " 
                  << formatDate(weekStart) << " to " 
                  << formatDate(weekEnd) << currentWeekIndicator << std::endl;
         
