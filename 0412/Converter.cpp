@@ -48,6 +48,6 @@ int main()
 {
     Converter con;
     con.BinaryToDecimal("11010101");
-    con.DecimalToBinary(15);
+    con.DecimalToBinary(1111);
     return 0;
 }
