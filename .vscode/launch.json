@@ -5,15 +5,29 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(Windows) Launch",
-            "type": "cppvsdbg",
+            "name": "(gdb) Launch Active File (UCRT64)", // Updated name slightly for clarity
+            "type": "cppdbg",
             "request": "launch",
-            "program": "enter program name, for example ${workspaceFolder}/a.exe",
+            // Using the variable to debug the active file's executable
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${fileDirname}",
+            "cwd": "${workspaceFolder}",
             "environment": [],
-            "console": "externalTerminal"
+            "externalConsole": true, // Keep true for console input (cin)
+            "MIMode": "gdb",
+            // --- THIS IS YOUR CORRECTED PATH ---
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
+            // --- END OF CORRECTED PATH ---
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // Make sure this task uses the correct g++ path and builds the active file
+            "preLaunchTask": "C/C++: g++.exe build active file"
         },
         {
             "name": "C/C++: cl.exe build and debug active file",
