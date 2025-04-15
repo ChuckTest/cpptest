@@ -9,10 +9,10 @@
             "type": "cppdbg",
             "request": "launch",
             // Using the variable to debug the active file's executable
-            "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": true, // Keep true for console input (cin)
             "MIMode": "gdb",
