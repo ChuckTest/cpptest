@@ -15,6 +15,7 @@ int main(void)
     cout << " i: " << i << " a: " << a << " b: " << b << " c: " << c << endl;
     i = i + 2;
     other();
+    system("pause");
     return 0;
 }
 void other(void)
@@ -38,5 +39,5 @@ OTHER Sub
 MAIN Sub
     i: 6 a: 0 b: 5 c: 3
 OTHER Sub
-    i: 24 a: 2 b: 1 c: 11
+    i: 24 a: 2 b: 2 c: 11
 */
