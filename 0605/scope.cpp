@@ -33,11 +33,11 @@ void other(void)
 
 /*
 MAIN Sub
-    i: 2 a: 0 b: 5 c: 2
+ i: 2 a: 0 b: 5 c: 2
 OTHER Sub
-    i: 6 a: 1 b: 0 c: 11
+ i: 6 a: 1 b: 0 c: 11
 MAIN Sub
-    i: 6 a: 0 b: 5 c: 3
+ i: 6 a: 0 b: 5 c: 3
 OTHER Sub
-    i: 24 a: 2 b: 2 c: 11
+ i: 24 a: 2 b: 2 c: 11
 */
