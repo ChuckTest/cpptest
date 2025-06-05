@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
-void main()
+int main()
 {
   double a,b;
-  double arctan(double x); //º¯ÊıÔ­ĞÍÉùÃ÷
+  double arctan(double x); //å‡½æ•°åŸå‹å£°æ˜
   a=16.0*arctan(1/5.0); 
   b=4.0*arctan(1/239.0); 
-    //×¢Òâ£ºÒòÎªÕûÊıÏà³ı½á¹ûÈ¡Õû£¬
-    //Èç¹û²ÎÊıĞ´1/5£¬1/239£¬½á¹û¾Í¶¼ÊÇ0
+    //æ³¨æ„ï¼šå› ä¸ºæ•´æ•°ç›¸é™¤ç»“æœå–æ•´ï¼Œ
+    //å¦‚æœå‚æ•°å†™1/5ï¼Œ1/239ï¼Œç»“æœå°±éƒ½æ˜¯0
   cout<<"PI="<<a-b<<endl;
 }
 double arctan(double x)
