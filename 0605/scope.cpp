@@ -29,3 +29,14 @@ void other(void)
     cout << " i: " << i << " a: " << a << " b: " << b << " c: " << c << endl;
     b = a + 1;
 }
+
+/*
+MAIN Sub
+    i: 2 a: 0 b: 5 c: 2
+OTHER Sub
+    i: 6 a: 1 b: 0 c: 11
+MAIN Sub
+    i: 6 a: 0 b: 5 c: 3
+OTHER Sub
+    i: 24 a: 2 b: 1 c: 11
+*/
