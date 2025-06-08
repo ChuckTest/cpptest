@@ -22,7 +22,7 @@ bool isNarcissistic(int num)
     int sum = 0;
     int digitsCount = 0;
 
-    //
+    //获取自然数的位数
     while (temp > 0)
     {
         temp /= 10;
@@ -30,6 +30,7 @@ bool isNarcissistic(int num)
     }
 
     temp = num;
+    //逐位计算
     while (temp > 0)
     {
         int digit = temp % 10;
@@ -51,6 +52,6 @@ int main()
         }
     }
     cout << endl;
-    system("pause");
+    //system("pause");
     return 0;
 }
