@@ -1,25 +1,30 @@
 #include <iostream>
 using namespace std;
-class B0	//ÉùÃ÷»ùÀàB0
-{ public:	//Íâ²¿½Ó¿Ú
+class B0 // å£°æ˜åŸºç±»B0
+{
+public: // å¤–éƒ¨æ¥å£
 	int nV;
-	void fun(){cout<<"Member of B0"<<endl;}
+	void fun() { cout << "Member of B0" << endl; }
 };
-class B1: virtual public B0  //B0ÎªĞé»ùÀà£¬ÅÉÉúB1Àà
-{ public:	//ĞÂÔöÍâ²¿½Ó¿Ú
+class B1 : virtual public B0 // B0ä¸ºè™šåŸºç±»ï¼Œæ´¾ç”ŸB1ç±»
+{
+public: // æ–°å¢å¤–éƒ¨æ¥å£
 	int nV1;
 };
-class B2: virtual public B0  //B0ÎªĞé»ùÀà£¬ÅÉÉúB2Àà
-{  public:	//ĞÂÔöÍâ²¿½Ó¿Ú
+class B2 : virtual public B0 // B0ä¸ºè™šåŸºç±»ï¼Œæ´¾ç”ŸB2ç±»
+{
+public: // æ–°å¢å¤–éƒ¨æ¥å£
 	int nV2;
 };
-class D1: public B1, public B2	//ÅÉÉúÀàD1ÉùÃ÷
-{  public:	//ĞÂÔöÍâ²¿½Ó¿Ú
+class D1 : public B1, public B2 // æ´¾ç”Ÿç±»D1å£°æ˜
+{
+public: // æ–°å¢å¤–éƒ¨æ¥å£
 	int nVd;
-	void fund(){cout<<"Member of D1"<<endl;}
+	void fund() { cout << "Member of D1" << endl; }
 };
-void main()	//³ÌĞòÖ÷º¯Êı
-{   D1 d1;	//ÉùÃ÷D1Àà¶ÔÏód1
-	d1.nV=2;	//Ê¹ÓÃ×îÔ¶»ùÀà³ÉÔ±
+void main() // ç¨‹åºä¸»å‡½æ•°
+{
+	D1 d1;	   // å£°æ˜D1ç±»å¯¹è±¡d1
+	d1.nV = 2; // ä½¿ç”¨æœ€è¿œåŸºç±»æˆå‘˜
 	d1.fun();
 }
