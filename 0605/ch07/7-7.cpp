@@ -1,28 +1,32 @@
 #include <iostream>
 using namespace std;
-class B1	//ÉùÃ÷»ùÀàB1
-{ public:	//Íâ²¿½Ó¿Ú
+class B1 // å£°æ˜åŸºç±»B1
+{
+public: // å¤–éƒ¨æ¥å£
 	int nV;
-	void fun()  {cout<<"Member of B1"<<endl;}
+	void fun() { cout << "Member of B1" << endl; }
 };
-class B2	//ÉùÃ÷»ùÀàB2
-{ public:	//Íâ²¿½Ó¿Ú
+class B2 // å£°æ˜åŸºç±»B2
+{
+public: // å¤–éƒ¨æ¥å£
 	int nV;
-	void fun(){cout<<"Member of B2"<<endl;}
+	void fun() { cout << "Member of B2" << endl; }
 };
-class D1: public B1, public B2	 
-{ public:
-	int nV;	//Í¬ÃûÊı¾İ³ÉÔ±
-	void fun(){cout<<"Member of D1"<<endl;}	//Í¬Ãûº¯Êı³ÉÔ±
+class D1 : public B1, public B2
+{
+public:
+	int nV;										   // åŒåæ•°æ®æˆå‘˜
+	void fun() { cout << "Member of D1" << endl; } // åŒåå‡½æ•°æˆå‘˜
 };
 void main()
-{	D1 d1;
-	d1.nV=1;  //¶ÔÏóÃû.³ÉÔ±Ãû±êÊ¶, ·ÃÎÊD1Àà³ÉÔ±
-	d1.fun();	         
-	
-	d1.B1::nV=2;	//×÷ÓÃÓò·Ö±æ·û±êÊ¶, ·ÃÎÊ»ùÀàB1³ÉÔ±
-	d1.B1::fun();	
-	
-	d1.B2::nV=3;	//×÷ÓÃÓò·Ö±æ·û±êÊ¶, ·ÃÎÊ»ùÀàB2³ÉÔ±
-	d1.B2::fun();	
+{
+	D1 d1;
+	d1.nV = 1; // å¯¹è±¡å.æˆå‘˜åæ ‡è¯†, è®¿é—®D1ç±»æˆå‘˜
+	d1.fun();
+
+	d1.B1::nV = 2; // ä½œç”¨åŸŸåˆ†è¾¨ç¬¦æ ‡è¯†, è®¿é—®åŸºç±»B1æˆå‘˜
+	d1.B1::fun();
+
+	d1.B2::nV = 3; // ä½œç”¨åŸŸåˆ†è¾¨ç¬¦æ ‡è¯†, è®¿é—®åŸºç±»B2æˆå‘˜
+	d1.B2::fun();
 }
