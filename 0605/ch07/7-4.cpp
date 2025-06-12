@@ -1,32 +1,35 @@
 #include <iostream>
 using namespace std;
-class B0	//»ùÀàB0ÉùÃ÷
-{ public:
-	void display(){cout<<"B0::display()"<<endl;}	//¹«ÓĞ³ÉÔ±º¯Êı
-};
-class B1: public B0	
-{
- public:
-	void display(){cout<<"B1::display()"<<endl;}	
-};
-class D1: public B1	
+class B0 // åŸºç±»B0å£°æ˜
 {
 public:
-	void display(){cout<<"D1::display()"<<endl;}	
+	void display() { cout << "B0::display()" << endl; } // å…¬æœ‰æˆå‘˜å‡½æ•°
 };
-void fun(B0 *ptr)	
-{	
-	ptr->display();	//"¶ÔÏóÖ¸Õë->³ÉÔ±Ãû"  
+class B1 : public B0
+{
+public:
+	void display() { cout << "B1::display()" << endl; }
+};
+class D1 : public B1
+{
+public:
+	void display() { cout << "D1::display()" << endl; }
+};
+void fun(B0 *ptr)
+{
+	ptr->display(); //"å¯¹è±¡æŒ‡é’ˆ->æˆå‘˜å"
 }
-void main()	//Ö÷º¯Êı
-{	B0 b0;	//ÉùÃ÷B0Àà¶ÔÏó
-	B1 b1;	//ÉùÃ÷B1Àà¶ÔÏó
-	D1 d1;	//ÉùÃ÷D1Àà¶ÔÏó
-	B0 *p;	//ÉùÃ÷B0ÀàÖ¸Õë
-	p=&b0;	//B0ÀàÖ¸ÕëÖ¸ÏòB0Àà¶ÔÏó
+int main() // ä¸»å‡½æ•°
+{
+	B0 b0;	 // å£°æ˜B0ç±»å¯¹è±¡
+	B1 b1;	 // å£°æ˜B1ç±»å¯¹è±¡
+	D1 d1;	 // å£°æ˜D1ç±»å¯¹è±¡
+	B0 *p;	 // å£°æ˜B0ç±»æŒ‡é’ˆ
+	p = &b0; // B0ç±»æŒ‡é’ˆæŒ‡å‘B0ç±»å¯¹è±¡
 	fun(p);
-	p=&b1;	//B0ÀàÖ¸ÕëÖ¸ÏòB1Àà¶ÔÏó
+	p = &b1; // B0ç±»æŒ‡é’ˆæŒ‡å‘B1ç±»å¯¹è±¡
 	fun(p);
-	p=&d1;	//B0ÀàÖ¸ÕëÖ¸ÏòD1Àà¶ÔÏó
+	p = &d1; // B0ç±»æŒ‡é’ˆæŒ‡å‘D1ç±»å¯¹è±¡
 	fun(p);
+	return 0;
 }
