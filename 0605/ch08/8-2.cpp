@@ -1,47 +1,55 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class Clock	//Ê±ÖÓÀàÉùÃ÷
+class Clock // æ—¶é’Ÿç±»å£°æ˜
 {
-  public:	//Íâ²¿½Ó¿Ú
-	  Clock(int NewH=0, int NewM=0, int NewS=0){Hour=NewH; Minute=NewM; Second=NewS;};
-	  void ShowTime();
-	  Clock operator ++();  //Ç°ÖÃµ¥Ä¿ÔËËã·ûÖØÔØ
-	  Clock operator ++(int);  //ºóÖÃµ¥Ä¿ÔËËã·ûÖØÔØ
-  private:	//Ë½ÓĞÊı¾İ³ÉÔ±
-	  int Hour,Minute,Second;
+public: // å¤–éƒ¨æ¥å£
+	Clock(int NewH = 0, int NewM = 0, int NewS = 0)
+	{
+		Hour = NewH;
+		Minute = NewM;
+		Second = NewS;
+	};
+	void ShowTime();
+	Clock operator++();	   // å‰ç½®å•ç›®è¿ç®—ç¬¦é‡è½½
+	Clock operator++(int); // åç½®å•ç›®è¿ç®—ç¬¦é‡è½½
+private:				   // ç§æœ‰æ•°æ®æˆå‘˜
+	int Hour, Minute, Second;
 };
-Clock Clock::operator ++()	//Ç°ÖÃµ¥Ä¿ÔËËã·ûÖØÔØº¯Êı
-{	Second++;
-	if(Second>=60)
-	{   Second=Second-60;
-	     Minute++;
-	     if(Minute>=60)
-	     {
-	          Minute=Minute-60;
-	          Hour++;
-	          Hour=Hour%24;
-	     }
+Clock Clock::operator++() // å‰ç½®å•ç›®è¿ç®—ç¬¦é‡è½½å‡½æ•°
+{
+	Second++;
+	if (Second >= 60)
+	{
+		Second = Second - 60;
+		Minute++;
+		if (Minute >= 60)
+		{
+			Minute = Minute - 60;
+			Hour++;
+			Hour = Hour % 24;
+		}
 	}
-    return *this;
+	return *this;
 }
-//ºóÖÃµ¥Ä¿ÔËËã·ûÖØÔØ
-Clock Clock::operator ++(int)	
-{		//×¢ÒâĞÎ²Î±íÖĞµÄÕûĞÍ²ÎÊı
-   Clock old=*this;
-   ++(*this);
-   return old;
+// åç½®å•ç›®è¿ç®—ç¬¦é‡è½½
+Clock Clock::operator++(int)
+{ // æ³¨æ„å½¢å‚è¡¨ä¸­çš„æ•´å‹å‚æ•°
+	Clock old = *this;
+	++(*this);
+	return old;
 }
-void Clock::ShowTime(){
-	cout<<"Now Time is "<<Hour<<":"<<Minute<<":"<<Second<<endl;
+void Clock::ShowTime()
+{
+	cout << "Now Time is " << Hour << ":" << Minute << ":" << Second << endl;
 }
 
 void main()
 {
-	Clock myClock(23,59,59);
-	cout<<"First time output:";
+	Clock myClock(23, 59, 59);
+	cout << "First time output:";
 	myClock.ShowTime();
-	cout<<"Show myClock++:";
+	cout << "Show myClock++:";
 	(myClock++).ShowTime();
-	cout<<"Show ++myClock:";
+	cout << "Show ++myClock:";
 	(++myClock).ShowTime();
 }

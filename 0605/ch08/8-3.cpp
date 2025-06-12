@@ -1,33 +1,44 @@
-#include<iostream.h>
-//using namespace std;
-class complex	//¸´ÊıÀàÉùÃ÷
+#include <iostream>
+using namespace std;
+class complex // å¤æ•°ç±»å£°æ˜
 {
-public:	//Íâ²¿½Ó¿Ú
-	complex(double r=0.0,double i=0.0){ real=r; imag=i; }	//¹¹Ôìº¯Êı
-	friend complex operator + (complex c1,complex c2);	//ÔËËã·û+ÖØÔØÎªÓÑÔªº¯Êı
-	friend complex operator - (complex c1,complex c2);	//ÔËËã·û-ÖØÔØÎªÓÑÔªº¯Êı
-	void display();	//ÏÔÊ¾¸´ÊıµÄÖµ
-private:	//Ë½ÓĞÊı¾İ³ÉÔ±
+public: // å¤–éƒ¨æ¥å£
+	complex(double r = 0.0, double i = 0.0)
+	{
+		real = r;
+		imag = i;
+	}												  // æ„é€ å‡½æ•°
+	friend complex operator+(complex c1, complex c2); // è¿ç®—ç¬¦+é‡è½½ä¸ºå‹å…ƒå‡½æ•°
+	friend complex operator-(complex c1, complex c2); // è¿ç®—ç¬¦-é‡è½½ä¸ºå‹å…ƒå‡½æ•°
+	void display();									  // æ˜¾ç¤ºå¤æ•°çš„å€¼
+private:											  // ç§æœ‰æ•°æ®æˆå‘˜
 	double real;
 	double imag;
-};	
-complex operator +(complex c1,complex c2)	//ÔËËã·ûÖØÔØÓÑÔªº¯ÊıÊµÏÖ
-{	  return complex(c2.real+c1.real, c2.imag+c1.imag);
+};
+complex operator+(complex c1, complex c2) // è¿ç®—ç¬¦é‡è½½å‹å…ƒå‡½æ•°å®ç°
+{
+	return complex(c2.real + c1.real, c2.imag + c1.imag);
 }
-complex operator -(complex c1,complex c2)	//ÔËËã·ûÖØÔØÓÑÔªº¯ÊıÊµÏÖ
-{	return complex(c1.real-c2.real, c1.imag-c2.imag);
+complex operator-(complex c1, complex c2) // è¿ç®—ç¬¦é‡è½½å‹å…ƒå‡½æ•°å®ç°
+{
+	return complex(c1.real - c2.real, c1.imag - c2.imag);
 }
 void complex::display()
-{   cout<<"("<<real<<","<<imag<<")"<<endl; }
+{
+	cout << "(" << real << "," << imag << ")" << endl;
+}
 
-void main()     //Ö÷º¯Êı
-{	complex c1(5,4),c2(2,10),c3;  //ÉùÃ÷¸´ÊıÀàµÄ¶ÔÏó
-	cout<<"c1="; c1.display();
-	cout<<"c2="; c2.display();
-	c3=c1-c2;	//Ê¹ÓÃÖØÔØÔËËã·ûÍê³É¸´Êı¼õ·¨
-	cout<<"c3=c1-c2=";
+void main() // ä¸»å‡½æ•°
+{
+	complex c1(5, 4), c2(2, 10), c3; // å£°æ˜å¤æ•°ç±»çš„å¯¹è±¡
+	cout << "c1=";
+	c1.display();
+	cout << "c2=";
+	c2.display();
+	c3 = c1 - c2; // ä½¿ç”¨é‡è½½è¿ç®—ç¬¦å®Œæˆå¤æ•°å‡æ³•
+	cout << "c3=c1-c2=";
 	c3.display();
-	c3=c1+c2;	//Ê¹ÓÃÖØÔØÔËËã·ûÍê³É¸´Êı¼Ó·¨
-	cout<<"c3=c1+c2=";
+	c3 = c1 + c2; // ä½¿ç”¨é‡è½½è¿ç®—ç¬¦å®Œæˆå¤æ•°åŠ æ³•
+	cout << "c3=c1+c2=";
 	c3.display();
 }

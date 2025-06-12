@@ -1,42 +1,51 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class complex	//¸´ÊıÀàÉùÃ÷
+class complex // å¤æ•°ç±»å£°æ˜
 {
-public:	//Íâ²¿½Ó¿Ú
-	complex(double r=0.0,double i=0.0){real=r;imag=i;} //¹¹Ôìº¯Êı
-	complex operator + (complex c2); //+ÖØÔØÎª³ÉÔ±º¯Êı
-	complex operator - (complex c2); //-ÖØÔØÎª³ÉÔ±º¯Êı
-	void display();	//Êä³ö¸´Êı
-private:	//Ë½ÓĞÊı¾İ³ÉÔ±
-	double real;	//¸´ÊıÊµ²¿
-	double imag;	//¸´ÊıĞé²¿
-};	
-complex complex::operator +(complex c2) //ÖØÔØº¯ÊıÊµÏÖ
+public: // å¤–éƒ¨æ¥å£
+	complex(double r = 0.0, double i = 0.0)
+	{
+		real = r;
+		imag = i;
+	}							   // æ„é€ å‡½æ•°
+	complex operator+(complex c2); //+é‡è½½ä¸ºæˆå‘˜å‡½æ•°
+	complex operator-(complex c2); //-é‡è½½ä¸ºæˆå‘˜å‡½æ•°
+	void display();				   // è¾“å‡ºå¤æ•°
+private:						   // ç§æœ‰æ•°æ®æˆå‘˜
+	double real;				   // å¤æ•°å®éƒ¨
+	double imag;				   // å¤æ•°è™šéƒ¨
+};
+complex complex::operator+(complex c2) // é‡è½½å‡½æ•°å®ç°
 {
 	complex c;
-	c.real=c2.real+real;
-	c.imag=c2.imag+imag;
-	return complex(c.real,c.imag);
+	c.real = c2.real + real;
+	c.imag = c2.imag + imag;
+	return complex(c.real, c.imag);
 }
-complex complex::operator -(complex c2)  //ÖØÔØº¯ÊıÊµÏÖ
+complex complex::operator-(complex c2) // é‡è½½å‡½æ•°å®ç°
 {
 	complex c;
-	c.real=real-c2.real;
-	c.imag=imag-c2.imag;
-	return complex(c.real,c.imag);
+	c.real = real - c2.real;
+	c.imag = imag - c2.imag;
+	return complex(c.real, c.imag);
 }
 void complex::display()
-{   cout<<"("<<real<<","<<imag<<")"<<endl; }
+{
+	cout << "(" << real << "," << imag << ")" << endl;
+}
 
-void main()     //Ö÷º¯Êı
-{	complex c1(5,4),c2(2,10),c3;  //ÉùÃ÷¸´ÊıÀàµÄ¶ÔÏó
-	cout<<"c1="; c1.display();
-	cout<<"c2="; c2.display();
-	c3=c1-c2;	//Ê¹ÓÃÖØÔØÔËËã·ûÍê³É¸´Êı¼õ·¨
-	cout<<"c3=c1-c2=";
+void main() // ä¸»å‡½æ•°
+{
+	complex c1(5, 4), c2(2, 10), c3; // å£°æ˜å¤æ•°ç±»çš„å¯¹è±¡
+	cout << "c1=";
+	c1.display();
+	cout << "c2=";
+	c2.display();
+	c3 = c1 - c2; // ä½¿ç”¨é‡è½½è¿ç®—ç¬¦å®Œæˆå¤æ•°å‡æ³•
+	cout << "c3=c1-c2=";
 	c3.display();
-	//c3=c1+c2;	//Ê¹ÓÃÖØÔØÔËËã·ûÍê³É¸´Êı¼Ó·¨
-	c3=c1+complex(2,10);
-	cout<<"c3=c1+c2=";
+	// c3=c1+c2;	//ä½¿ç”¨é‡è½½è¿ç®—ç¬¦å®Œæˆå¤æ•°åŠ æ³•
+	c3 = c1 + complex(2, 10);
+	cout << "c3=c1+c2=";
 	c3.display();
 }
