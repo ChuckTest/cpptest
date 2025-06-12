@@ -22,9 +22,10 @@ public: // 新增外部接口
 	int nVd;
 	void fund() { cout << "Member of D1" << endl; }
 };
-void main() // 程序主函数
+int main() // 程序主函数
 {
 	D1 d1;	   // 声明D1类对象d1
 	d1.nV = 2; // 使用最远基类成员
 	d1.fun();
+	return 0;
 }

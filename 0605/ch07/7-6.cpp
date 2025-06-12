@@ -25,7 +25,8 @@ private: // 派生类的私有对象成员
 	B2 memberB2;
 	B3 memberB3;
 };
-void main()
+int main()
 {
 	C obj(1, 2, 3, 4);
+	return 0;
 }
