@@ -59,8 +59,9 @@ void C::Print() const
 	B::Print();
 	cout << c << endl;
 }
-void main()
+int main()
 {
 	C obj(5, 6);
 	obj.Print();
+	return 0;
 }
