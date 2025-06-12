@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 double power (double x, int n);
-void main(void)
+int main(void)
 {
 	int  i;
 	int  value = 0;
