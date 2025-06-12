@@ -1,36 +1,50 @@
-#include<iostream>
-#include<cmath>
+#include <iostream>
+#include <cmath>
 using namespace std;
-class Point	//»ùÀàPointÀàµÄÉùÃ÷
-{public:	//¹«ÓĞº¯Êı³ÉÔ±
-	void InitP(float xx=0, float yy=0)
-    {X=xx;Y=yy;}
+class Point // åŸºç±»Pointç±»çš„å£°æ˜
+{
+public: // å…¬æœ‰å‡½æ•°æˆå‘˜
+	void InitP(float xx = 0, float yy = 0)
+	{
+		X = xx;
+		Y = yy;
+	}
 	void Move(float xOff, float yOff)
-    {X+=xOff;Y+=yOff;}
-	float GetX() {return X;}
-	float GetY() {return Y;}
-private:	//Ë½ÓĞÊı¾İ³ÉÔ±
-	float X,Y;
+	{
+		X += xOff;
+		Y += yOff;
+	}
+	float GetX() { return X; }
+	float GetY() { return Y; }
+
+private: // ç§æœ‰æ•°æ®æˆå‘˜
+	float X, Y;
 };
-class Rectangle: private Point	//ÅÉÉúÀàÉùÃ÷
-{public:	//ĞÂÔöÍâ²¿½Ó¿Ú
+class Rectangle : private Point // æ´¾ç”Ÿç±»å£°æ˜
+{
+public: // æ–°å¢å¤–éƒ¨æ¥å£
 	void InitR(float x, float y, float w, float h)
-	{InitP(x,y);W=w;H=h;}	//·ÃÎÊ»ùÀà¹«ÓĞ³ÉÔ±
-	void Move(float xOff, float yOff) {Point::Move(xOff,yOff);}
-	float GetX() {return Point::GetX();}
-	float GetY() {return Point::GetY();}
-	float GetH() {return H;}
-	float GetW() {return W;}
-private:	//ĞÂÔöË½ÓĞÊı¾İ
-	float W,H;
+	{
+		InitP(x, y);
+		W = w;
+		H = h;
+	} // è®¿é—®åŸºç±»å…¬æœ‰æˆå‘˜
+	void Move(float xOff, float yOff) { Point::Move(xOff, yOff); }
+	float GetX() { return Point::GetX(); }
+	float GetY() { return Point::GetY(); }
+	float GetH() { return H; }
+	float GetW() { return W; }
+
+private: // æ–°å¢ç§æœ‰æ•°æ®
+	float W, H;
 };
 
 int main()
-{  //Í¨¹ıÅÉÉúÀà¶ÔÏóÖ»ÄÜ·ÃÎÊ±¾Àà³ÉÔ±
-    Rectangle rect;
-	rect.InitR(2,3,20,10);
-	rect.Move(3,2);
-	cout<<rect.GetX()<<',' <<rect.GetY()<<','
-		<<rect.GetH()<<','<<rect.GetW()<<endl;
+{ // é€šè¿‡æ´¾ç”Ÿç±»å¯¹è±¡åªèƒ½è®¿é—®æœ¬ç±»æˆå‘˜
+	Rectangle rect;
+	rect.InitR(2, 3, 20, 10);
+	rect.Move(3, 2);
+	cout << rect.GetX() << ',' << rect.GetY() << ','
+		 << rect.GetH() << ',' << rect.GetW() << endl;
 	return 0;
 }
