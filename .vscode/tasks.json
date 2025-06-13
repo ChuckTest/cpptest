@@ -27,6 +27,9 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
+                "-O0",//(Zero optimization / No optimization): 不进行任何优化。
+                "-std=c++20", // <-- 添加这一行，或者使用 -std=c++20
+                "-fno-elide-constructors", // 禁用构造函数消除
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
