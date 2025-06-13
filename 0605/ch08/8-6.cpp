@@ -22,7 +22,7 @@ void fun(B0 *ptr) // 普通函数
 {
 	ptr->display();
 }
-void main() // 主函数
+int main() // 主函数
 {
 	B0 b0, *p; // 声明基类对象和指针
 	B1 b1;	   // 声明派生类对象
