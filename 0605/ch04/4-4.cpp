@@ -30,7 +30,7 @@ Point::Point(Point &p)
 class Line
 {
 public:
-	Line(Point xp1, Point xp2);
+	Line(Point &xp1, Point &xp2);
 	Line(Line &l);
 	double getLen() { return len; }
 
@@ -39,7 +39,7 @@ private:
 	double len;
 };
 
-Line::Line(Point xp1, Point xp2) : p1(xp1), p2(xp2)
+Line::Line(Point &xp1, Point &xp2) : p1(xp1), p2(xp2)
 {
 	cout << "调用Line的构造函数" << endl;
 	double x = static_cast<double>(p1.getX() - p2.getX());
@@ -55,7 +55,7 @@ Line::Line(Line &l) : p1(l.p1), p2(l.p2)
 
 int main()
 {
-	SetConsoleOutputCP(65001);  // 控制台输出 UTF-8
+	SetConsoleOutputCP(65001); // 控制台输出 UTF-8
 	Point myp1(1, 1), myp2(4, 5);
 	Line line(myp1, myp2);
 	Line line2(line);
