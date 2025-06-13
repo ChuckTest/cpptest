@@ -1,14 +1,14 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
-class Point	//PointÀàÉùÃ÷
-{public:	//Íâ²¿½Ó¿Ú
+class Point	//Pointç±»å£°æ˜
+{public:	//å¤–éƒ¨æ¥å£
 	Point(int xx=0, int yy=0) {X=xx;Y=yy;countP++;}	
-	Point(Point &p);	//¿½±´¹¹Ôìº¯Êı
+	Point(Point &p);	//æ‹·è´æ„é€ å‡½æ•°
 	int GetX() {return X;}
 	int GetY() {return Y;}
 	static void GetC()
         {cout<<" Object id="<<countP<<endl;}	
-private:	//Ë½ÓĞÊı¾İ³ÉÔ±
+private:	//ç§æœ‰æ•°æ®æˆå‘˜
 	int X,Y;
 	static int countP;
 };
@@ -18,11 +18,11 @@ Point::Point(Point &p)
 	countP++;
 }
 int Point::countP=0;	
-void main()	//Ö÷º¯ÊıÊµÏÖ
-{	Point A(4,5);	//ÉùÃ÷¶ÔÏóA
+void main()	//ä¸»å‡½æ•°å®ç°
+{	Point A(4,5);	//å£°æ˜å¯¹è±¡A
 	cout<<"Point A,"<<A.GetX()<<","<<A.GetY();
-	A.GetC();	//Êä³ö¶ÔÏóºÅ£¬¶ÔÏóÃûÒıÓÃ
-	Point B(A);	//ÉùÃ÷¶ÔÏóB
+	A.GetC();	//è¾“å‡ºå¯¹è±¡å·ï¼Œå¯¹è±¡åå¼•ç”¨
+	Point B(A);	//å£°æ˜å¯¹è±¡B
 	cout<<"Point B,"<<B.GetX()<<","<<B.GetY();
-	Point::GetC();	//Êä³ö¶ÔÏóºÅ£¬ÀàÃûÒıÓÃ
+	Point::GetC();	//è¾“å‡ºå¯¹è±¡å·ï¼Œç±»åå¼•ç”¨
 }

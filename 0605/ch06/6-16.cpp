@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 class Point
 { public:
@@ -14,10 +14,10 @@ class Point
        int  X,Y;
 };
 int main()
-{   Point *Ptr=new Point[2];    //´´½¨¶ÔÏóÊı×é
-     Ptr[0].Move(5,10);     //Í¨¹ıÖ¸Õë·ÃÎÊÊı×éÔªËØµÄ³ÉÔ±
-     Ptr[1].Move(15,20);   //Í¨¹ıÖ¸Õë·ÃÎÊÊı×éÔªËØµÄ³ÉÔ±
+{   Point *Ptr=new Point[2];    //åˆ›å»ºå¯¹è±¡æ•°ç»„
+     Ptr[0].Move(5,10);     //é€šè¿‡æŒ‡é’ˆè®¿é—®æ•°ç»„å…ƒç´ çš„æˆå‘˜
+     Ptr[1].Move(15,20);   //é€šè¿‡æŒ‡é’ˆè®¿é—®æ•°ç»„å…ƒç´ çš„æˆå‘˜
      cout<<"Deleting..."<<endl;
-     delete[ ] Ptr;               //É¾³ıÕû¸ö¶ÔÏóÊı×é
+     delete[ ] Ptr;               //åˆ é™¤æ•´ä¸ªå¯¹è±¡æ•°ç»„
      return 0;
 }

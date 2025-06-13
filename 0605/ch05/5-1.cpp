@@ -1,12 +1,12 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
-int i;   //ÎÄ¼ş×÷ÓÃÓò
+int i;   //æ–‡ä»¶ä½œç”¨åŸŸ
 int main()
 {   i=5;
-     {  int i;  //¿é×÷ÓÃÓò
+     {  int i;  //å—ä½œç”¨åŸŸ
          i=7;
-         cout<<"i="<<i<<endl;  //Êä³ö7
+         cout<<"i="<<i<<endl;  //è¾“å‡º7
      }
-     cout<<"i="<<i<<endl;   //Êä³ö5
+     cout<<"i="<<i<<endl;   //è¾“å‡º5
      return 0;
 }

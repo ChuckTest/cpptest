@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 class Clock
 {
@@ -17,7 +17,7 @@ void Clock :: SetTime(int NewH, int NewM, int NewS)
 }
 void Clock :: ShowTime()
 {
-	cout<<"µ±Ç°Ê±¼äÎª£º";
+	cout<<"å½“å‰æ—¶é—´ä¸ºï¼š";
     cout<<Hour<<":"<<Minute<<":"<<Second<<endl;
 }
 Clock :: Clock(int newH, int newM, int newS)
@@ -30,9 +30,9 @@ void main(void)
 {    
 	Clock  myClock(0,0,0);
 	int H,M,S;
-	cout<<"Êä³öÄ¬ÈÏÊ±¼ä"<<endl;
+	cout<<"è¾“å‡ºé»˜è®¤æ—¶é—´"<<endl;
 	myClock.ShowTime();
-	cout<<"ÇëÉè¶¨Ê±¼ä"<<endl;
+	cout<<"è¯·è®¾å®šæ—¶é—´"<<endl;
 	cin>>H>>M>>S;
     myClock.SetTime(H,M,S);
 	myClock.ShowTime();

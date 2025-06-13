@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <cstdlib>
 using namespace std;
 int rolldice(void);
@@ -7,41 +7,41 @@ void main()
   int gamestatus,sum,mypoint;
   unsigned seed; 
   cout<<"Please enter an unsigned integer:";
-  cin>>seed;          //ÊäÈëËæ»úÊıÖÖ×Ó
-  srand(seed);       //½«ÖÖ×Ó´«µİ¸ørand()
-  sum=rolldice();   //µÚÒ»ÂÖÍ¶÷»×Ó¡¢¼ÆËãºÍÊı
+  cin>>seed;          //è¾“å…¥éšæœºæ•°ç§å­
+  srand(seed);       //å°†ç§å­ä¼ é€’ç»™rand()
+  sum=rolldice();   //ç¬¬ä¸€è½®æŠ•éª°å­ã€è®¡ç®—å’Œæ•°
   switch(sum)
   {
-    case 7:   //Èç¹ûºÍÊıÎª7»ò11ÔòÎªÊ¤,×´Ì¬Îª1
+    case 7:   //å¦‚æœå’Œæ•°ä¸º7æˆ–11åˆ™ä¸ºèƒœ,çŠ¶æ€ä¸º1
     case 11:   gamestatus=1;
                       break;
-    case 2:   //ºÍÊıÎª2¡¢3»ò12ÔòÎª¸º,×´Ì¬Îª2
+    case 2:   //å’Œæ•°ä¸º2ã€3æˆ–12åˆ™ä¸ºè´Ÿ,çŠ¶æ€ä¸º2
     case 3: 
     case 12:   gamestatus=2;
                      break;
-    default:   //ÆäËüÇé¿ö,ÓÎÏ·ÉĞÎŞ½á¹û,×´Ì¬Îª0,¼ÇÏÂµãÊı,ÎªÏÂÒ»ÂÖ×ö×¼±¸
+    default:   //å…¶å®ƒæƒ…å†µ,æ¸¸æˆå°šæ— ç»“æœ,çŠ¶æ€ä¸º0,è®°ä¸‹ç‚¹æ•°,ä¸ºä¸‹ä¸€è½®åšå‡†å¤‡
            gamestatus=0;
            mypoint=sum  ;
            cout<<"point is "<<mypoint<<endl;
     break;
   }
-  while ( gamestatus==0 )  //Ö»Òª×´Ì¬ÈÔÎª 0,¾Í¼ÌĞø½øĞĞÏÂÒ»ÂÖ
+  while ( gamestatus==0 )  //åªè¦çŠ¶æ€ä»ä¸º 0,å°±ç»§ç»­è¿›è¡Œä¸‹ä¸€è½®
   {
     sum=rolldice();
-    if(sum==mypoint)    //Ä³ÂÖµÄºÍÊıµÈÓÚµãÊıÔòÈ¡Ê¤,×´Ì¬ÖÃÎª1
+    if(sum==mypoint)    //æŸè½®çš„å’Œæ•°ç­‰äºç‚¹æ•°åˆ™å–èƒœ,çŠ¶æ€ç½®ä¸º1
       gamestatus=1  ;
     else
-      if ( sum==7 )    //³öÏÖºÍÊıÎª7ÔòÎª¸º,×´Ì¬ÖÃÎª2
+      if ( sum==7 )    //å‡ºç°å’Œæ•°ä¸º7åˆ™ä¸ºè´Ÿ,çŠ¶æ€ç½®ä¸º2
         gamestatus=2;
   }
-//µ±×´Ì¬²»Îª0Ê±ÉÏÃæµÄÑ­»·½áÊø,ÒÔÏÂ³ÌĞò¶ÎÊä³öÓÎÏ·½á¹û
+//å½“çŠ¶æ€ä¸ä¸º0æ—¶ä¸Šé¢çš„å¾ªç¯ç»“æŸ,ä»¥ä¸‹ç¨‹åºæ®µè¾“å‡ºæ¸¸æˆç»“æœ
   if(  gamestatus==1  )
     cout<<"player wins\n";
   else
     cout<<"player loses\n";
 }
 int rolldice(void)
-{ //Í¶÷»×Ó¡¢¼ÆËãºÍÊı¡¢Êä³öºÍÊı
+{ //æŠ•éª°å­ã€è®¡ç®—å’Œæ•°ã€è¾“å‡ºå’Œæ•°
   int die1,die2,worksum;
   die1=1+rand()%6;
   die2=1+rand()%6;

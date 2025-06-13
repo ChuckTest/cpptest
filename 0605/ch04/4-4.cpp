@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <cmath>
 using namespace std;
 
@@ -7,7 +7,7 @@ class Point{
 		Point(int xx=0, int yy=0){
 			x=xx;
 			y=yy;
-			cout<<"µ÷ÓÃPointµÄ¹¹Ôìº¯Êý, x="<<x<<endl;
+			cout<<"è°ƒç”¨Pointçš„æž„é€ å‡½æ•°, x="<<x<<endl;
 		}
 		Point(Point &p);
 		int getX(){return x;}
@@ -19,7 +19,7 @@ class Point{
 Point::Point(Point &p){
 	x=p.x;
 	y=p.y;
-	cout<<"µ÷ÓÃPointµÄ¸´ÖÆ¹¹Ôìº¯Êý, x="<<x<<endl;
+	cout<<"è°ƒç”¨Pointçš„å¤åˆ¶æž„é€ å‡½æ•°, x="<<x<<endl;
 }
 
 class Line{
@@ -28,19 +28,19 @@ class Line{
 		Line(Line &l);
 		double getLen(){return len;}
 	private:
-		Point p1, p2;                    //Õâ¸öË³Ðò¾ö¶¨ÁË¹¹Ôìº¯Êýµ÷ÓÃµÄË³Ðò
+		Point p1, p2;                    //è¿™ä¸ªé¡ºåºå†³å®šäº†æž„é€ å‡½æ•°è°ƒç”¨çš„é¡ºåº
 		double len;
 };
 
 Line::Line(Point xp1, Point xp2):p1(xp1),p2(xp2){
-	cout<<"µ÷ÓÃLineµÄ¹¹Ôìº¯Êý"<<endl;
+	cout<<"è°ƒç”¨Lineçš„æž„é€ å‡½æ•°"<<endl;
 	double x=static_cast<double>(p1.getX()-p2.getX());
 	double y=static_cast<double>(p1.getY()-p2.getY());
 	len=sqrt(x*x+y*y);
 }
 
 Line::Line(Line &l):p1(l.p1),p2(l.p2){
-	cout<<"µ÷ÓÃLineµÄ¸´ÖÆ¹¹Ôìº¯Êý"<<endl;
+	cout<<"è°ƒç”¨Lineçš„å¤åˆ¶æž„é€ å‡½æ•°"<<endl;
 	len=l.len;
 }
 
@@ -48,9 +48,9 @@ int main(){
 	Point myp1(1,1), myp2(4,5);
 	Line line(myp1, myp2);
 	Line line2(line);
-	cout<<"lineµÄ³¤¶ÈÊÇ:";
+	cout<<"lineçš„é•¿åº¦æ˜¯:";
 	cout<<line.getLen()<<endl;
-	cout<<"line2µÄ³¤¶ÈÊÇ:";
+	cout<<"line2çš„é•¿åº¦æ˜¯:";
 	cout<<line2.getLen()<<endl;
 	return 0;
 }

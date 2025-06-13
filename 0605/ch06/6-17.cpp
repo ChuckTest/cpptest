@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 class Point
 { public:
@@ -33,10 +33,10 @@ void main()
 	int number;
 	cout<<"Please enter the number of points:";
 	cin>>number;
-    //´´½¨¶ÔÏóÊı×é
+    //åˆ›å»ºå¯¹è±¡æ•°ç»„
     ArrayOfPoints points(number);    
-    //Í¨¹ıÖ¸Õë·ÃÎÊÊı×éÔªËØµÄ³ÉÔ±
+    //é€šè¿‡æŒ‡é’ˆè®¿é—®æ•°ç»„å…ƒç´ çš„æˆå‘˜
     points.Element(0).Move(5,10); 
-    //Í¨¹ıÖ¸Õë·ÃÎÊÊı×éÔªËØµÄ³ÉÔ±
+    //é€šè¿‡æŒ‡é’ˆè®¿é—®æ•°ç»„å…ƒç´ çš„æˆå‘˜
     points.Element(1).Move(15,20);   
 }

@@ -1,13 +1,13 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <cmath>
 using namespace std;
-class Point	//PointÀàÉùÃ÷
-{ public:	//Íâ²¿½Ó¿Ú
+class Point	//Pointç±»å£°æ˜
+{ public:	//å¤–éƒ¨æ¥å£
 	Point(int xx=0, int yy=0) {X=xx;Y=yy;}
 	int GetX() {return X;}
 	int GetY() {return Y;}
 	friend double Distance(Point &a, Point &b); 
-  private:	//Ë½ÓĞÊı¾İ³ÉÔ±
+  private:	//ç§æœ‰æ•°æ®æˆå‘˜
 	int X,Y;
 };
 double Distance( Point& a, Point& b)

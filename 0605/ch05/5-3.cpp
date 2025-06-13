@@ -1,16 +1,16 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
-class Clock	//Ê±ÖÓÀàÉùÃ÷
-{public:	//Íâ²¿½Ó¿Ú
+class Clock	//æ—¶é’Ÿç±»å£°æ˜
+{public:	//å¤–éƒ¨æ¥å£
 	Clock();
-	void SetTime(int NewH, int NewM, int NewS);   //Èı¸öĞÎ²Î¾ù¾ßÓĞº¯ÊıÔ­ĞÍ×÷ÓÃÓò
+	void SetTime(int NewH, int NewM, int NewS);   //ä¸‰ä¸ªå½¢å‚å‡å…·æœ‰å‡½æ•°åŸå‹ä½œç”¨åŸŸ
 	void ShowTime();
 	~Clock(){}
-private:	//Ë½ÓĞÊı¾İ³ÉÔ±
+private:	//ç§æœ‰æ•°æ®æˆå‘˜
 	int Hour,Minute,Second;
 };
-//Ê±ÖÓÀà³ÉÔ±º¯ÊıÊµÏÖ
-Clock::Clock()	//¹¹Ôìº¯Êı
+//æ—¶é’Ÿç±»æˆå‘˜å‡½æ•°å®ç°
+Clock::Clock()	//æ„é€ å‡½æ•°
 {	Hour=0;
 	Minute=0;
 	Second=0;
@@ -23,16 +23,16 @@ void Clock::SetTime(int NewH, int NewM, int NewS)
 void Clock::ShowTime()
 {	cout<<Hour<<":"<<Minute<<":"<<Second<<endl;
 }
-Clock globClock;	//ÉùÃ÷¶ÔÏóglobClock£¬
-                                //¾ßÓĞ¾²Ì¬Éú´æÆÚ£¬ÎÄ¼ş×÷ÓÃÓò
-void main()	//Ö÷º¯Êı
+Clock globClock;	//å£°æ˜å¯¹è±¡globClockï¼Œ
+                                //å…·æœ‰é™æ€ç”Ÿå­˜æœŸï¼Œæ–‡ä»¶ä½œç”¨åŸŸ
+void main()	//ä¸»å‡½æ•°
 {
 	cout<<"First time output:"<<endl;	
-	//ÒıÓÃ¾ßÓĞÎÄ¼ş×÷ÓÃÓòµÄ¶ÔÏó£º
-	globClock.ShowTime(); //¶ÔÏóµÄ³ÉÔ±º¯Êı¾ßÓĞÀà×÷ÓÃÓò
+	//å¼•ç”¨å…·æœ‰æ–‡ä»¶ä½œç”¨åŸŸçš„å¯¹è±¡ï¼š
+	globClock.ShowTime(); //å¯¹è±¡çš„æˆå‘˜å‡½æ•°å…·æœ‰ç±»ä½œç”¨åŸŸ
 	globClock.SetTime(8,30,30);	
 	Clock myClock(globClock); 
-                       //ÉùÃ÷¾ßÓĞ¿é×÷ÓÃÓòµÄ¶ÔÏómyClock
+                       //å£°æ˜å…·æœ‰å—ä½œç”¨åŸŸçš„å¯¹è±¡myClock
 	cout<<"Second time output:"<<endl;	
-	myClock.ShowTime();	//ÒıÓÃ¾ßÓĞ¿é×÷ÓÃÓòµÄ¶ÔÏó
+	myClock.ShowTime();	//å¼•ç”¨å…·æœ‰å—ä½œç”¨åŸŸçš„å¯¹è±¡
 }

@@ -1,9 +1,9 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 void print_stuff(float data_to_ignore);
 void print_message(float list_this_data);
 void print_float(float data_to_print);
-void (*function_pointer)(float);//À¨ºÅÖĞµÄÄÚÈİ	
+void (*function_pointer)(float);//æ‹¬å·ä¸­çš„å†…å®¹	
 void main()	
 {
 	float pi = (float)3.14159;

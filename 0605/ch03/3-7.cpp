@@ -1,11 +1,11 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 void main(void)
 {
    int a,b;
    int fun1(int x,int y);
    cin>>a>>b;
-   cout<<"a¡¢bµÄÆ½·½ºÍ£º"<<fun1(a,b)<<endl;
+   cout<<"aã€bçš„å¹³æ–¹å’Œï¼š"<<fun1(a,b)<<endl;
 }
 int fun1(int x,int y)
 {

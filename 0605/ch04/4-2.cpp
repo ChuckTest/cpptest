@@ -1,4 +1,4 @@
-#include "iostream"
+ï»¿#include "iostream"
 using namespace std;
 class Point
 {
@@ -17,15 +17,15 @@ Point::Point (Point&  p)
 {
       X=p.X;
       Y=p.Y;
-      cout<<"¸´ÖÆ¹¹Ôìº¯Êý±»µ÷ÓÃ"<<endl;
+      cout<<"å¤åˆ¶æž„é€ å‡½æ•°è¢«è°ƒç”¨"<<endl;
 }
 
 void main(){
 	Point myP(12,12);
-	cout<<"µÚÒ»¸öµã£¨"<<myP.GetX()<<", "<<myP.GetY()<<"£©"<<endl;
+	cout<<"ç¬¬ä¸€ä¸ªç‚¹ï¼ˆ"<<myP.GetX()<<", "<<myP.GetY()<<"ï¼‰"<<endl;
 	Point myP1(myP);
-	cout<<"µÚ¶þ¸öµã£¨"<<myP1.GetX()<<", "<<myP1.GetY()<<"£©"<<endl;
+	cout<<"ç¬¬äºŒä¸ªç‚¹ï¼ˆ"<<myP1.GetX()<<", "<<myP1.GetY()<<"ï¼‰"<<endl;
 	myP1.SetX(100);
 	myP1.SetY(100);
-	cout<<"ÖØÐÂ¸³Öµºó£¬µÚ¶þ¸öµã£¨"<<myP1.GetX()<<", "<<myP1.GetY()<<"£©"<<endl;
+	cout<<"é‡æ–°èµ‹å€¼åŽï¼Œç¬¬äºŒä¸ªç‚¹ï¼ˆ"<<myP1.GetX()<<", "<<myP1.GetY()<<"ï¼‰"<<endl;
 }
