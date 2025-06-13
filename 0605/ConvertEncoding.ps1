@@ -43,7 +43,7 @@ Get-ChildItem -Path . -Filter "*.cpp" -Recurse | ForEach-Object {
     try {
         # 读取 GBK 编码文件并转换为 UTF-8
         $content = Get-Content -Path $file -Encoding Default
-        $content | Out-File -FilePath $tempFile -Encoding UTF8 -NoNewline
+        $content | Out-File -FilePath $tempFile -Encoding UTF8
         
         # 替换原文件
         Move-Item -Path $tempFile -Destination $file -Force
