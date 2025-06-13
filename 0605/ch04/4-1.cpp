@@ -1,4 +1,5 @@
-﻿#include<iostream>
+﻿#include <windows.h>
+#include<iostream>
 using namespace std;
 class Clock
 {
@@ -20,8 +21,9 @@ void Clock :: ShowTime()
     cout<<Hour<<":"<<Minute<<":"<<Second<<endl;
 }
 
-void main(void)
+int main(void)
 {    
+	SetConsoleOutputCP(65001); // 控制台输出 UTF-8
 	Clock  myClock;
 	int H,M,S;
 	cout<<"输出默认时间"<<endl;
