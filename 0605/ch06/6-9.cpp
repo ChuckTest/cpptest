@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 void  splitfloat(float x, int *intpart, float *fracpart)
-{  //ĞÎ²Îintpart¡¢ fracpartÊÇÖ¸Õë
-    *intpart = int(x);	// È¡xµÄÕûÊı²¿·Ö
-    *fracpart = x - *intpart; //È¡xµÄĞ¡Êı²¿·Ö
+{  //å½¢å‚intpartã€ fracpartæ˜¯æŒ‡é’ˆ
+    *intpart = int(x);	// å–xçš„æ•´æ•°éƒ¨åˆ†
+    *fracpart = x - *intpart; //å–xçš„å°æ•°éƒ¨åˆ†
 }
 void main(void)
 {
@@ -14,7 +14,7 @@ void main(void)
 	for (i = 0; i < 3; i++)
 	{
 		cin >> x;
-		splitfloat(x,&n,&f);       //±äÁ¿µØÖ·×öÊµ²Î
+		splitfloat(x,&n,&f);       //å˜é‡åœ°å€åšå®å‚
 		cout << "Integer Part is " << n << "   Fraction Part is " << f << endl;
 	}
 }

@@ -5,27 +5,27 @@ void main()
 {
 	int a[10];
 	int i;
-	//ÊäÈë10¸öÊı¾İ³õÊ¼»¯Êı×é
-	cout<<"ÇëÊäÈë10¸öÊı×ÖÀ´³õÊ¼»¯Êı×é"<<endl;
-	for(i=0; i<10; i++)
-		cin>>a[i];
-	cout<<endl;
-	cout<<"Ê¹ÓÃÊı×éÃûºÍÏÂ±ê:"<<endl;
-	for(i=0; i<10; i++)
-		cout<<a[i]<<"  ";
-	cout<<endl;
-	cout<<"Ê¹ÓÃÊı×éÃûºÍÖ¸ÕëÔËËã:"<<endl;
-	for(i=0; i<10; i++)
-		cout<<*(a+i)<<"  ";
-	cout<<endl;
-	cout<<"Ê¹ÓÃÖ¸Õë±äÁ¿(·½·¨1):"<<endl;
-	int * pa=a;
-	for(i=0; i<10; i++)
-		cout<<*(pa+i)<<"  ";
-	cout<<endl;
-	cout<<"Ê¹ÓÃÖ¸Õë±äÁ¿(·½·¨2):"<<endl;
-	
-	for(pa=a; pa<(a+10);pa++)
-		cout<<*pa<<"  ";
-	cout<<endl;
+	// è¾“å…¥10ä¸ªæ•°æ®åˆå§‹åŒ–æ•°ç»„
+	cout << "è¯·è¾“å…¥10ä¸ªæ•°å­—æ¥åˆå§‹åŒ–æ•°ç»„" << endl;
+	for (i = 0; i < 10; i++)
+		cin >> a[i];
+	cout << endl;
+	cout << "ä½¿ç”¨æ•°ç»„åå’Œä¸‹æ ‡:" << endl;
+	for (i = 0; i < 10; i++)
+		cout << a[i] << "  ";
+	cout << endl;
+	cout << "ä½¿ç”¨æ•°ç»„åå’ŒæŒ‡é’ˆè¿ç®—:" << endl;
+	for (i = 0; i < 10; i++)
+		cout << *(a + i) << "  ";
+	cout << endl;
+	cout << "ä½¿ç”¨æŒ‡é’ˆå˜é‡(æ–¹æ³•1):" << endl;
+	int *pa = a;
+	for (i = 0; i < 10; i++)
+		cout << *(pa + i) << "  ";
+	cout << endl;
+	cout << "ä½¿ç”¨æŒ‡é’ˆå˜é‡(æ–¹æ³•2):" << endl;
+
+	for (pa = a; pa < (a + 10); pa++)
+		cout << *pa << "  ";
+	cout << endl;
 }

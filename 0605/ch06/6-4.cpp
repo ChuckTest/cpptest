@@ -1,15 +1,16 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 int main()
-{	int *i_pointer;	//ÉùÃ÷intĞÍÖ¸Õëi_pointer
-	int i;	//ÉùÃ÷intĞÍÊıi
-	i_pointer=&i;	//È¡iµÄµØÖ·¸³¸øi_pointer
-	i=10;	//intĞÍÊı¸³³õÖµ
-	cout<<"Output int i="<<i<<endl; //Êä³öintĞÍÊıµÄÖµ
-	cout<<"Output int pointer i="<<*i_pointer<<endl;
-                          //Êä³öintĞÍÖ¸ÕëËùÖ¸µØÖ·µÄÄÚÈİ
-                          
-    cout<<"Output i_pointer="<<i_pointer<<endl;
-	cout<<"Output i address="<< &i<<endl; 
-                          
+{
+	int *i_pointer;						  // å£°æ˜intå‹æŒ‡é’ˆi_pointer
+	int i;								  // å£°æ˜intå‹æ•°i
+	i_pointer = &i;						  // å–içš„åœ°å€èµ‹ç»™i_pointer
+	i = 10;								  // intå‹æ•°èµ‹åˆå€¼
+	cout << "Output int i=" << i << endl; // è¾“å‡ºintå‹æ•°çš„å€¼
+	cout << "Output int pointer i=" << *i_pointer << endl;
+	// è¾“å‡ºintå‹æŒ‡é’ˆæ‰€æŒ‡åœ°å€çš„å†…å®¹
+
+	cout << "Output i_pointer=" << i_pointer << endl;
+	cout << "Output i address=" << &i << endl;
+	return 0;
 }

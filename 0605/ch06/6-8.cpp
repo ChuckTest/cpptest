@@ -6,7 +6,7 @@ void main()
     {  cout<<*(array2+i)<<endl;	
 	    for(int j=0;j<3;j++)
         {  cout<<*(*(array2+i)+j)<<" ";   
-           //»òÕß cout<<array2[i][j]<<" ";
+           //Ð›Ñ’ÐµÐ¿ cout<<array2[i][j]<<" ";
         }	
 	    cout<<endl;
 	}
