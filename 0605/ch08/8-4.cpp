@@ -31,7 +31,7 @@ void fun(Point &s)
 {
 	cout << "Area=" << s.Area() << endl;
 }
-void main()
+int main()
 {
 	Rectangle rec(3.0, 5.2, 15.0, 25.0);
 	fun(rec);

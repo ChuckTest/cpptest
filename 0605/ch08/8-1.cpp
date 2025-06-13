@@ -7,7 +7,7 @@ public: // 外部接口
 	{
 		real = r;
 		imag = i;
-	}							   // 构造函数
+	} // 构造函数
 	complex operator+(complex c2); //+重载为成员函数
 	complex operator-(complex c2); //-重载为成员函数
 	void display();				   // 输出复数
@@ -34,7 +34,7 @@ void complex::display()
 	cout << "(" << real << "," << imag << ")" << endl;
 }
 
-void main() // 主函数
+int main() // 主函数
 {
 	complex c1(5, 4), c2(2, 10), c3; // 声明复数类的对象
 	cout << "c1=";

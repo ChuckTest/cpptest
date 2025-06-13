@@ -43,7 +43,7 @@ void Clock::ShowTime()
 	cout << "Now Time is " << Hour << ":" << Minute << ":" << Second << endl;
 }
 
-void main()
+int main()
 {
 	Clock myClock(23, 59, 59);
 	cout << "First time output:";
