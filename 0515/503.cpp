@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 using namespace std;
-
+//一组数的平均值
 int main() {
     int n;
     cout << "请输入数字的个数: ";

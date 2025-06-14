@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 using namespace std;
-
+//指针访问数组
 int main() {
     int n;
     cout << "请输入数组大小: ";

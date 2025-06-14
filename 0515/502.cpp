@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 using namespace std;
-
+//输出螺旋矩阵
 int main() {
     int n;
     cout << "请输入矩阵的大小N: ";
