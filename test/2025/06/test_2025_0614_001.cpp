@@ -1,4 +1,4 @@
-#include<windows.h>
+#include <windows.h>
 #include <iostream>
 using namespace std;
 
@@ -13,7 +13,7 @@ int main()
 
     char array[] = "Hello";
     cout << array << endl;
-    cout << *(array + 1);
+    cout << *(array + 1) << endl;
 
     cout << "数组首地址（array）: " << static_cast<void *>(array) << endl;
     // 打印每个字符的地址和内容
