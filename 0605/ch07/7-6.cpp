@@ -20,13 +20,24 @@ class C : public B2, public B1, public B3
 public: // 派生类的公有成员
 	C(int a, int b, int c, int d) : B1(a), memberB2(d), memberB1(c), B2(b) {}
 
-private: // 派生类的私有对象成员
+private: // 派生类的私有对象成员 
+//成员对象构造：按成员声明顺序
 	B1 memberB1;
 	B2 memberB2;
 	B3 memberB3;
 };
 int main()
 {
+
+	//基类构造：按继承声明顺序 class C : public B2, public B1, public B3
 	C obj(1, 2, 3, 4);
 	return 0;
 }
+/*
+constructing B2 2
+constructing B1 1
+constructing B3 *
+constructing B1 3
+constructing B2 4
+constructing B3 *
+*/
