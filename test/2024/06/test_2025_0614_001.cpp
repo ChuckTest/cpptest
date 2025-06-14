@@ -1,8 +1,10 @@
+#include<windows.h>
 #include <iostream>
 using namespace std;
 
 int main()
 {
+    SetConsoleOutputCP(65001); // 控制台输出 UTF-8
     char *p = "Hello";
     cout << *p << endl;
     cout << *(p + 1) << endl;
