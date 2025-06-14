@@ -10,8 +10,10 @@ public:
 private:
     const int a;
     static const int b; // 静态常数据成员
-} coust int A::b = 10;
-A::(int i) : a(i), r(a) {}
+}；
+
+    const int A::b = 10;
+A::A(int i) : a(i), r(a) {}
 void A::print()
 {
     cout << a << ": " << b << ": " << r << endl;
