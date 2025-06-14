@@ -1,32 +1,32 @@
-#include <iostream>
+ï»¿#include <iostream>
 using namespace std;
 
 int main() {
     int n;
-    cout << "ÇëÊäÈë¾ØÕóµÄ´óĞ¡N: ";
+    cout << "è¯·è¾“å…¥çŸ©é˜µçš„å¤§å°N: ";
     cin >> n;
 
-    // ´´½¨²¢³õÊ¼»¯N¡ÁNµÄ¾ØÕó
+    // åˆ›å»ºå¹¶åˆå§‹åŒ–NÃ—Nçš„çŸ©é˜µ
     int matrix[100][100] = {0};
-    int value = 1;  // ³õÊ¼Ìî³äÖµ
+    int value = 1;  // åˆå§‹å¡«å……å€¼
 
-    // ¶¨Òå±ß½ç
+    // å®šä¹‰è¾¹ç•Œ
     int top = 0, bottom = n - 1, left = 0, right = n - 1;
 
     while (top <= bottom && left <= right) {
-        // ´Ó×óµ½ÓÒÌî³ä¶¥²¿ĞĞ
+        // ä»å·¦åˆ°å³å¡«å……é¡¶éƒ¨è¡Œ
         for (int i = left; i <= right; i++) {
             matrix[top][i] = value++;
         }
         top++;
 
-        // ´ÓÉÏµ½ÏÂÌî³äÓÒ²àÁĞ
+        // ä»ä¸Šåˆ°ä¸‹å¡«å……å³ä¾§åˆ—
         for (int i = top; i <= bottom; i++) {
             matrix[i][right] = value++;
         }
         right--;
 
-        // ´ÓÓÒµ½×óÌî³äµ×²¿ĞĞ
+        // ä»å³åˆ°å·¦å¡«å……åº•éƒ¨è¡Œ
         if (top <= bottom) {
             for (int i = right; i >= left; i--) {
                 matrix[bottom][i] = value++;
@@ -34,7 +34,7 @@ int main() {
             bottom--;
         }
 
-        // ´ÓÏÂµ½ÉÏÌî³ä×ó²àÁĞ
+        // ä»ä¸‹åˆ°ä¸Šå¡«å……å·¦ä¾§åˆ—
         if (left <= right) {
             for (int i = bottom; i >= top; i--) {
                 matrix[i][left] = value++;
@@ -43,11 +43,11 @@ int main() {
         }
     }
 
-    // Êä³ö¾ØÕó
-    cout << "Éú³ÉµÄÂİĞı¾ØÕóÎª:" << endl;
+    // è¾“å‡ºçŸ©é˜µ
+    cout << "ç”Ÿæˆçš„èºæ—‹çŸ©é˜µä¸º:" << endl;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cout.width(4);  // ÉèÖÃ¿í¶ÈÎª4£¬ÓÒ¶ÔÆë
+            cout.width(4);  // è®¾ç½®å®½åº¦ä¸º4ï¼Œå³å¯¹é½
             cout << matrix[i][j];
         }
         cout << endl;
