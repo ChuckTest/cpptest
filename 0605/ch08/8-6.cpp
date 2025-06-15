@@ -22,6 +22,11 @@ void fun(B0 *ptr) // 普通函数
 {
 	ptr->display();
 }
+
+void fun2(B0 b) // 普通函数
+{
+	b.display();
+}
 int main() // 主函数
 {
 	B0 b0, *p; // 声明基类对象和指针
@@ -33,5 +38,9 @@ int main() // 主函数
 	fun(p); // 调用派生类B1函数成员
 	p = &d1;
 	fun(p); // 调用派生类D1函数成员
+
+	fun2(b0);
+	fun2(b1);
+	fun2(d1);
 	return 0;
 }
