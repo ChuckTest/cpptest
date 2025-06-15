@@ -27,6 +27,13 @@ void fun2(B0 b) // 普通函数
 {
 	b.display();
 }
+
+void fun3(B0 &b) // 普通函数
+{
+	b.display();
+
+}
+
 int main() // 主函数
 {
 	B0 b0, *p; // 声明基类对象和指针
@@ -42,5 +49,9 @@ int main() // 主函数
 	fun2(b0);
 	fun2(b1);
 	fun2(d1);
+
+	fun3(b0);
+	fun3(b1);
+	fun3(d1);
 	return 0;
 }
