@@ -40,8 +40,8 @@ Date getCurrentDate() {
     // Here we assume the current date is 2025-04-02
     Date today;
     today.year = 2025;
-    today.month = 9;
-    today.day = 7;
+    today.month = 12;
+    today.day = 27;
     return today;
 }
 
