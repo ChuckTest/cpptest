@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include <windows.h>
 
 // Date structure
 struct Date {
@@ -39,7 +40,7 @@ Date getCurrentDate() {
     // Here we assume the current date is 2025-04-02
     Date today;
     today.year = 2025;
-    today.month = 6;
+    today.month = 9;
     today.day = 7;
     return today;
 }
@@ -86,8 +87,8 @@ void printWeeklyDateRanges() {
     // Get current date
     Date today = getCurrentDate();
     
-    // Define start date: February 16, 2025
-    Date startOfFirstWeek = {2025, 2, 16};
+    // Define start date: September 7, 2025
+    Date startOfFirstWeek = {2025, 9, 7};
     
     // Calculate current week number
     int weekNumber;
@@ -101,7 +102,7 @@ void printWeeklyDateRanges() {
     std::cout << "Current date: " << formatDate(today) << std::endl;
     std::cout << "Today is week " << weekNumber << std::endl;
     std::cout << std::endl;
-    std::cout << "Weekly Date Ranges from February 16, 2025:" << std::endl;
+    std::cout << "Weekly Date Ranges from September 7, 2025:" << std::endl;
     std::cout << "============================================" << std::endl;
     
     // Calculate and print each week
@@ -127,8 +128,8 @@ void test2025_0402_001() {
     // Get current date
     Date today = getCurrentDate();
     
-    // Define start date: February 16, 2025
-    Date startOfFirstWeek = {2025, 2, 16};
+    // Define start date: September 7, 2025
+    Date startOfFirstWeek = {2025, 9, 7};
     
     // Calculate current week number
     int weekNumber;
@@ -143,6 +144,7 @@ void test2025_0402_001() {
 }
 
 int main() {
+    SetConsoleOutputCP(65001);  // 控制台输出 UTF-8
     printWeeklyDateRanges();
     return 0;
 }
