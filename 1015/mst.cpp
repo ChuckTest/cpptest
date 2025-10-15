@@ -113,8 +113,20 @@ void Prim(const Graph& g, int v) {
         int min_cost = INF + 1; 
         int k = -1;             
         
-        cout << "\n--- 步骤 " << i << ".a: 查找 V-U 中 lowcost 最小的顶点 (min_cost 初始为 INF) ---" << endl;
+        cout << "  当前 V-U 集合中的候选边 (lowcost > 0 且 < INF):" << endl;
+        bool has_candidate = false;
+        for (int j = 0; j < V; ++j) {
+            if (lowcost[j] > 0 && lowcost[j] < INF) {
+                has_candidate = true;
+                cout << "    * 边 (" << g.vertex_names[j] << ", " << g.vertex_names[closest[j]] 
+                     << ")，权重: " << lowcost[j] << endl;
+            }
+        }
+        if (!has_candidate) {
+             cout << "    (没有可达的候选边，图可能不连通或已完成)" << endl;
+        }
         
+        cout << "\n--- 步骤 " << i << ".a: 查找 V-U 中 lowcost 最小的顶点 (min_cost 初始为 INF) ---" << endl;
         for (int j = 0; j < V; ++j) {
             // lowcost[j] > 0 表示 j 属于 V-U
             if (lowcost[j] > 0) {
