@@ -155,20 +155,16 @@ void Prim(const Graph &g, int v)
             break;
         }
 
-        // b) 将顶点 k 加入 U
-        cout << "\n--- 步骤 " << i << ".b: 选取顶点 " << g.vertex_names[k]
-             << " (来自 " << g.vertex_names[closest[k]] << ")，权重: " << min_cost << " ---" << endl;
-
         mst_weight += min_cost;
         edge_count++;
 
         // 标记 k 已加入 U
         lowcost[k] = 0;
 
-        // c) 更新 lowcost 和 closest 数组
+        // b) 更新 lowcost 和 closest 数组
         // k 是新加入 U 的顶点
         string k_name = g.vertex_names[k];
-        cout << "--- 步骤 " << i << ".c: 更新 lowcost 和 closest (新加入顶点 " << k_name << ") ---" << endl;
+        cout << "--- 步骤 " << i << ".b: 更新 lowcost 和 closest (新加入顶点 " << k_name << ") ---" << endl;
 
         for (int j = 0; j < V; ++j)
         {
@@ -237,14 +233,14 @@ int main()
     cout << "INF (无穷大) = " << INF << endl;
 
     // --- 图 1: A-G ---
-    Graph g1 = create_graph_1();
-    int start_node_g1 = 0; // 从 A(0) 开始
-    cout << "\n--- 处理图 1 (顶点 A-G) ---" << endl;
-    Prim(g1, start_node_g1);
+    // Graph g1 = create_graph_1();
+    // int start_node_g1 = 0; // 从 A(0) 开始
+    // cout << "\n--- 处理图 1 (顶点 A-G) ---" << endl;
+    // Prim(g1, start_node_g1);
 
     // --- 图 2: 0-6 ---
     Graph g2 = create_graph_2();
-    int start_node_g2 = 0; // 从 0 开始
+    int start_node_g2 = 1; // 从 0 开始
     cout << "\n--- 处理图 2 (顶点 0-6) ---" << endl;
     Prim(g2, start_node_g2);
 
