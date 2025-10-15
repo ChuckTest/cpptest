@@ -109,16 +109,32 @@ void Prim(const Graph& g, int v) {
     // 2. 迭代 V-1 次
     for (int i = 1; i < V; ++i) {
         
-        // a) 寻找 lowcost 最小的顶点 k
+        // a) 在 V-U (lowcost[j] > 0) 中，寻找 lowcost 最小的顶点 k
         int min_cost = INF + 1; 
         int k = -1;             
-
+        
+        cout << "\n--- 步骤 " << i << ".a: 查找 V-U 中 lowcost 最小的顶点 (min_cost 初始为 INF) ---" << endl;
+        
         for (int j = 0; j < V; ++j) {
-            if (lowcost[j] > 0 && lowcost[j] < min_cost) {
-                min_cost = lowcost[j];
-                k = j;
+            // lowcost[j] > 0 表示 j 属于 V-U
+            if (lowcost[j] > 0) {
+                string j_name = g.vertex_names[j];
+                string current_min_cost_str = (min_cost > INF) ? string("INF") : to_string(min_cost);
+                string lowcost_j_str = (lowcost[j] >= INF) ? string("INF") : to_string(lowcost[j]);
+
+                cout << "  * 检查顶点 " << j_name << " (lowcost=" << lowcost_j_str << ")：";
+                
+                if (lowcost[j] < min_cost) {
+                    min_cost = lowcost[j];
+                    k = j;
+                    cout << "lowcost[" << j_name << "] < 当前 min_cost(" << current_min_cost_str << ")，**更新 min_cost=" << lowcost[j] << "**。" << endl;
+                } else {
+                    cout << "lowcost[" << j_name << "] >= 当前 min_cost(" << current_min_cost_str << ")，不更新。" << endl;
+                }
             }
         }
+        cout << "--- 查找完成：选取顶点 " << (k == -1 ? "无" : g.vertex_names[k]) << "，最小权重: " << (k == -1 ? "N/A" : to_string(min_cost)) << " ---" << endl;
+
 
         if (k == -1) {
             cout << "警告: 图不连通或发生错误!" << endl;
@@ -126,7 +142,7 @@ void Prim(const Graph& g, int v) {
         }
 
         // b) 将顶点 k 加入 U 
-        cout << "\n--- 步骤 " << i << ": 选取顶点 " << g.vertex_names[k] 
+        cout << "\n--- 步骤 " << i << ".b: 选取顶点 " << g.vertex_names[k] 
              << " (来自 " << g.vertex_names[closest[k]] << ")，权重: " << min_cost << " ---" << endl;
         
         mst_weight += min_cost;
@@ -138,7 +154,7 @@ void Prim(const Graph& g, int v) {
         // c) 更新 lowcost 和 closest 数组
         // k 是新加入 U 的顶点
         string k_name = g.vertex_names[k];
-        cout << "--- 更新 lowcost 和 closest (新加入顶点 " << k_name << ") ---" << endl;
+        cout << "--- 步骤 " << i << ".c: 更新 lowcost 和 closest (新加入顶点 " << k_name << ") ---" << endl;
         
         for (int j = 0; j < V; ++j) {
             // j 属于 V-U
@@ -153,16 +169,16 @@ void Prim(const Graph& g, int v) {
                 if (new_cost < current_lowcost) {
                     if (new_cost < INF) {
                         cout << "新边 (" << k_name << "," << j_name << ") 权值 " << new_cost 
-                             << " < 当前 lowcost[" << j_name << "](" << current_lowcost << ")，**更新**。" << endl;
+                             << " < 当前 lowcost[" << j_name << "](" << (current_lowcost == INF ? string("INF") : to_string(current_lowcost)) << ")，**更新**。" << endl;
                         lowcost[j] = new_cost; 
                         closest[j] = k;             
                     } else {
-                        // 仅当 new_cost = INF 且 current_lowcost 也是 INF 时，才有可能不更新
+                        // 理论上 new_cost < current_lowcost 不会是 INF < INF
                         cout << "新边无连接 (INF)，当前 lowcost[" << j_name << "](" << current_lowcost << ") 不变。" << endl;
                     }
                 } else {
                     if (current_lowcost == INF) {
-                        cout << "新边 (" << k_name << "," << j_name << ") 权值 " << (new_cost == INF ? string("INF") : to_string(new_cost)) 
+                         cout << "新边 (" << k_name << "," << j_name << ") 权值 " << (new_cost == INF ? string("INF") : to_string(new_cost)) 
                              << "。顶点 " << j_name << " 仍不可达 (lowcost=INF)。" << endl;
                     } else {
                         cout << "新边 (" << k_name << "," << j_name << ") 权值 " << (new_cost == INF ? string("INF") : to_string(new_cost)) 
