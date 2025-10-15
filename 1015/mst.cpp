@@ -168,33 +168,42 @@ void Prim(const Graph& g, int v) {
         string k_name = g.vertex_names[k];
         cout << "--- 步骤 " << i << ".c: 更新 lowcost 和 closest (新加入顶点 " << k_name << ") ---" << endl;
         
-        for (int j = 0; j < V; ++j) {
+        for (int j = 0; j < V; ++j) 
+        {
             // j 属于 V-U
             if (lowcost[j] > 0) { 
                 string j_name = g.vertex_names[j];
                 int new_cost = g.edges[k][j];
                 int current_lowcost = lowcost[j];
-
+                string closest_j_name = g.vertex_names[closest[j]]; // 获取旧边连接的U中顶点
+        
                 cout << "  * 检查顶点 V-U 中的 " << j_name << "：";
                 
                 // 检查 k 到 j 的新边是否更小
                 if (new_cost < current_lowcost) {
+                    string current_lowcost_str = (current_lowcost == INF ? string("INF") : to_string(current_lowcost));
+        
                     if (new_cost < INF) {
                         cout << "新边 (" << k_name << "," << j_name << ") 权值 " << new_cost 
-                             << " < 当前 lowcost[" << j_name << "](" << (current_lowcost == INF ? string("INF") : to_string(current_lowcost)) << ")，**更新**。" << endl;
+                             << " < 旧边 (" << closest_j_name << "," << j_name << ") 权值 " << current_lowcost_str 
+                             << "，**更新** lowcost[" << j_name << "]=" << new_cost << "，closest[" << j_name << "]=" << k_name << "。" << endl;
                         lowcost[j] = new_cost; 
                         closest[j] = k;             
                     } else {
-                        // 理论上 new_cost < current_lowcost 不会是 INF < INF
-                        cout << "新边无连接 (INF)，当前 lowcost[" << j_name << "](" << current_lowcost << ") 不变。" << endl;
+                        // 理论上 new_cost (INF) < current_lowcost (非INF) 不会发生
+                        cout << "新边无连接 (INF)，旧边权值 " << current_lowcost_str << " 不变。" << endl;
                     }
                 } else {
+                    string new_cost_str = (new_cost == INF ? string("INF") : to_string(new_cost));
+                    string current_lowcost_str = (current_lowcost == INF ? string("INF") : to_string(current_lowcost));
+        
                     if (current_lowcost == INF) {
-                         cout << "新边 (" << k_name << "," << j_name << ") 权值 " << (new_cost == INF ? string("INF") : to_string(new_cost)) 
+                         cout << "新边 (" << k_name << "," << j_name << ") 权值 " << new_cost_str 
                              << "。顶点 " << j_name << " 仍不可达 (lowcost=INF)。" << endl;
                     } else {
-                        cout << "新边 (" << k_name << "," << j_name << ") 权值 " << (new_cost == INF ? string("INF") : to_string(new_cost)) 
-                             << " >= 当前 lowcost[" << j_name << "](" << current_lowcost << ")，**不更新**。" << endl;
+                        cout << "新边 (" << k_name << "," << j_name << ") 权值 " << new_cost_str 
+                             << " >= 旧边 (" << closest_j_name << "," << j_name << ") 权值 " << current_lowcost_str 
+                             << "，**不更新**。" << endl;
                     }
                 }
             }
