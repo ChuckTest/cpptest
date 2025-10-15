@@ -3,8 +3,8 @@
 #include <iomanip>
 #include <limits>
 #include <tuple>
-#include <map>
-#include <windows.h>
+#include <string>
+#include <windows.h> 
 
 using namespace std;
 
@@ -14,12 +14,8 @@ const int INF = 32767;
 // 定义图结构
 struct Graph {
     int V; // 顶点数
-    // 邻接矩阵：g.edges[i][j]
-    // > 0 且 < INF: 边权
-    // 0: i=j
-    // INF: 无边 (i != j)
     vector<vector<int>> edges;
-    vector<char> vertex_names; // 存储顶点名称，便于输出
+    vector<string> vertex_names; // 使用 std::string 存储顶点名称
 };
 
 
@@ -28,20 +24,17 @@ Graph create_graph_1() {
     const int V_COUNT = 7;
     Graph g;
     g.V = V_COUNT;
-    g.vertex_names = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+    g.vertex_names = {"A", "B", "C", "D", "E", "F", "G"}; 
     
-    // 初始化邻接矩阵为 0 (对角线) 或 INF (非对角线)
     g.edges.resize(V_COUNT, vector<int>(V_COUNT, INF));
-    for (int i = 0; i < V_COUNT; ++i) {
-        g.edges[i][i] = 0;
-    }
+    for (int i = 0; i < V_COUNT; ++i) g.edges[i][i] = 0;
 
     // 边和权重: {u, v, weight} (A=0, B=1, C=2, D=3, E=4, F=5, G=6)
     vector<tuple<int, int, int>> edges_data = {
-        {0, 3, 9}, {0, 1, 2}, {0, 5, 5}, // AD 9, AB 2, AF 5
-        {1, 5, 8}, {5, 6, 1}, {1, 6, 4}, // BF 8, FG 1, BG 4
-        {2, 6, 6}, {1, 2, 7}, {4, 2, 10},// CG 6, BC 7, EC 10
-        {1, 4, 3}, {1, 3, 1}, {3, 4, 2}  // BE 3, BD 1, DE 2
+        {0, 3, 9}, {0, 1, 2}, {0, 5, 5}, 
+        {1, 5, 8}, {5, 6, 1}, {1, 6, 4}, 
+        {2, 6, 6}, {1, 2, 7}, {4, 2, 10},
+        {1, 4, 3}, {1, 3, 1}, {3, 4, 2}  
     };
 
     for (const auto& edge : edges_data) {
@@ -49,7 +42,7 @@ Graph create_graph_1() {
         int v = get<1>(edge);
         int weight = get<2>(edge);
         g.edges[u][v] = weight;
-        g.edges[v][u] = weight; // 无向图
+        g.edges[v][u] = weight; 
     }
     return g;
 }
@@ -59,14 +52,15 @@ Graph create_graph_2() {
     const int V_COUNT = 7;
     Graph g;
     g.V = V_COUNT;
-    // 使用数字作为顶点名称，但存储为字符，方便在 Prim 中通用输出
-    g.vertex_names = {'0', '1', '2', '3', '4', '5', '6'}; 
     
-    // 初始化邻接矩阵
-    g.edges.resize(V_COUNT, vector<int>(V_COUNT, INF));
-    for (int i = 0; i < V_COUNT; ++i) {
-        g.edges[i][i] = 0;
+    // 使用 std::string 存储数字顶点名称 "0", "1", ...
+    g.vertex_names.reserve(V_COUNT);
+    for(int i = 0; i < V_COUNT; ++i) {
+        g.vertex_names.push_back(to_string(i)); 
     }
+    
+    g.edges.resize(V_COUNT, vector<int>(V_COUNT, INF));
+    for (int i = 0; i < V_COUNT; ++i) g.edges[i][i] = 0;
 
     // 边和权重: {u, v, weight} (顶点直接使用数字编号)
     vector<tuple<int, int, int>> edges_data = {
@@ -81,7 +75,7 @@ Graph create_graph_2() {
         int v = get<1>(edge);
         int weight = get<2>(edge);
         g.edges[u][v] = weight;
-        g.edges[v][u] = weight; // 无向图
+        g.edges[v][u] = weight; 
     }
     return g;
 }
@@ -95,24 +89,14 @@ Graph create_graph_2() {
 void Prim(const Graph& g, int v) {
     int V = g.V;
 
-    if (v < 0 || v >= V) {
-        cerr << "错误: 起始顶点编号无效!" << endl;
-        return;
-    }
-
-    // closest[j]: 存储 V-U 中的顶点 j 到 U 中距离最近的顶点编号
+    // ... (初始化逻辑保持不变)
     vector<int> closest(V); 
-    // lowcost[j]: 存储 V-U 中的顶点 j 到 U 的最小边权
-    // lowcost[j] = 0 表示 j 属于 U
     vector<int> lowcost(V); 
 
-    // 1. 初始化数组 (U 初始只包含起始顶点 v)
     for (int j = 0; j < V; ++j) {
         lowcost[j] = g.edges[v][j]; 
         closest[j] = v;             
     }
-    
-    // 标记起始顶点 v 已加入 U
     lowcost[v] = 0; 
     
     int mst_weight = 0;
@@ -125,28 +109,26 @@ void Prim(const Graph& g, int v) {
     // 2. 迭代 V-1 次
     for (int i = 1; i < V; ++i) {
         
-        // a) 在 V-U 中寻找 lowcost 最小的顶点 k
+        // a) 寻找 lowcost 最小的顶点 k
         int min_cost = INF + 1; 
         int k = -1;             
 
         for (int j = 0; j < V; ++j) {
-            // lowcost[j] > 0 表示 j 属于 V-U
             if (lowcost[j] > 0 && lowcost[j] < min_cost) {
                 min_cost = lowcost[j];
                 k = j;
             }
         }
 
-        // 检查图是否连通
         if (k == -1) {
-            cout << "警告: 图不连通。MST 已完成 (边数: " << edge_count << " < " << V - 1 << ")." << endl;
+            cout << "警告: 图不连通或发生错误!" << endl;
             break; 
         }
 
         // b) 将顶点 k 加入 U 
-        // 选中边 (closest[k], k)
-        cout << "  添加边: (" << g.vertex_names[closest[k]] << ", " << g.vertex_names[k] 
-             << ")，权重: " << min_cost << endl;
+        cout << "\n--- 步骤 " << i << ": 选取顶点 " << g.vertex_names[k] 
+             << " (来自 " << g.vertex_names[closest[k]] << ")，权重: " << min_cost << " ---" << endl;
+        
         mst_weight += min_cost;
         edge_count++;
 
@@ -154,28 +136,54 @@ void Prim(const Graph& g, int v) {
         lowcost[k] = 0; 
 
         // c) 更新 lowcost 和 closest 数组
+        // k 是新加入 U 的顶点
+        string k_name = g.vertex_names[k];
+        cout << "--- 更新 lowcost 和 closest (新加入顶点 " << k_name << ") ---" << endl;
+        
         for (int j = 0; j < V; ++j) {
             // j 属于 V-U
             if (lowcost[j] > 0) { 
+                string j_name = g.vertex_names[j];
+                int new_cost = g.edges[k][j];
+                int current_lowcost = lowcost[j];
+
+                cout << "  * 检查顶点 V-U 中的 " << j_name << "：";
+                
                 // 检查 k 到 j 的新边是否更小
-                if (g.edges[k][j] < lowcost[j]) {
-                    lowcost[j] = g.edges[k][j]; 
-                    closest[j] = k;             
+                if (new_cost < current_lowcost) {
+                    if (new_cost < INF) {
+                        cout << "新边 (" << k_name << "," << j_name << ") 权值 " << new_cost 
+                             << " < 当前 lowcost[" << j_name << "](" << current_lowcost << ")，**更新**。" << endl;
+                        lowcost[j] = new_cost; 
+                        closest[j] = k;             
+                    } else {
+                        // 仅当 new_cost = INF 且 current_lowcost 也是 INF 时，才有可能不更新
+                        cout << "新边无连接 (INF)，当前 lowcost[" << j_name << "](" << current_lowcost << ") 不变。" << endl;
+                    }
+                } else {
+                    if (current_lowcost == INF) {
+                        cout << "新边 (" << k_name << "," << j_name << ") 权值 " << (new_cost == INF ? string("INF") : to_string(new_cost)) 
+                             << "。顶点 " << j_name << " 仍不可达 (lowcost=INF)。" << endl;
+                    } else {
+                        cout << "新边 (" << k_name << "," << j_name << ") 权值 " << (new_cost == INF ? string("INF") : to_string(new_cost)) 
+                             << " >= 当前 lowcost[" << j_name << "](" << current_lowcost << ")，**不更新**。" << endl;
+                    }
                 }
             }
         }
+        cout << "---------------------------------------------------------" << endl;
     }
 
-    cout << "-----------------------------------" << endl;
+    cout << "\n-----------------------------------" << endl;
     cout << "最小生成树的总权重: " << mst_weight << endl;
     cout << "===================================" << endl;
 }
 
 
 int main() {
+    // 设置控制台输出 UTF-8 编码
+    SetConsoleOutputCP(65001); 
 
-    SetConsoleOutputCP(65001); // 控制台输出 UTF-8
-    
     // 设置输出格式
     cout << "INF (无穷大) = " << INF << endl;
     
@@ -191,6 +199,9 @@ int main() {
     cout << "\n--- 处理图 2 (顶点 0-6) ---" << endl;
     Prim(g2, start_node_g2);
 
-    system("pause");
+    // 暂停，等待用户按键
+    cout << "\n程序执行完毕。";
+    system("pause"); 
+
     return 0;
 }
