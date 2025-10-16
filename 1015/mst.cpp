@@ -233,14 +233,14 @@ int main()
     cout << "INF (无穷大) = " << INF << endl;
 
     // --- 图 1: A-G ---
-    // Graph g1 = create_graph_1();
-    // int start_node_g1 = 0; // 从 A(0) 开始
-    // cout << "\n--- 处理图 1 (顶点 A-G) ---" << endl;
-    // Prim(g1, start_node_g1);
+    Graph g1 = create_graph_1();
+    int start_node_g1 = 0; // 从 A(0) 开始
+    cout << "\n--- 处理图 1 (顶点 A-G) ---" << endl;
+    Prim(g1, start_node_g1);
 
     // --- 图 2: 0-6 ---
     Graph g2 = create_graph_2();
-    int start_node_g2 = 1; // 从 0 开始
+    int start_node_g2 = 0; // 从 0 开始
     cout << "\n--- 处理图 2 (顶点 0-6) ---" << endl;
     Prim(g2, start_node_g2);
 
