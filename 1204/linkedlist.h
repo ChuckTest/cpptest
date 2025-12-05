@@ -45,7 +45,8 @@ public:
     {
         if (i <= 0)
         {
-            return NULL;
+            cout << "非法参数";
+            exit(0);
         }
         if (head->next == NULL)
         {
@@ -80,6 +81,16 @@ public:
 
     Node *Search(DataType e)
     {
+        Node *p = head->next;
+        while (p != NULL)
+        {
+            if (p->data == e)
+            {
+                return p;
+            }
+            p = p->next;
+        }
+        return NULL;
     }
 
     void CreateListR()
