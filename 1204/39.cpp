@@ -13,6 +13,7 @@ private:
     DataType data; // 数据域
     Node *next;    // 指针域
     Node *prev;    // 前驱指针域
+    int index;
 public:
     Node(Node *ptr = NULL, Node *pre = NULL)
     {
@@ -147,6 +148,7 @@ void CircularLinkedList::Insert(int index, DataType e) // 按位插入
             i++;
         } // 遍历，保存指针至index位置
         Node *s = new Node(e, p->next, p);
+        s->index=index;
         p->next->prev = s; // 维护前驱指针
         p->next = s;       // 维护后继指针
     }
@@ -242,13 +244,17 @@ void CircularLinkedList::MagicCardWrong()//错误版
     {
         Insert(i + 1, 0); // 插入N个0
     }
-
+    this->PrintList();
     Node *cur = head->next; // 从第一个节点开始
 
     for (int card = 1; card <= N; card++)
     {
         // 跳过 (card - 1) 个空位（data == 0）
         int skip = card - 1;
+        if(card==8){
+            card=card+1;
+            card=card-1;
+        }
         while (skip > 0)
         {
             cur = cur->next;
@@ -256,6 +262,7 @@ void CircularLinkedList::MagicCardWrong()//错误版
                 cur = cur->next; // 跳过头节点（头节点不存数据）
             if (cur->data == 0)
             {
+                cout << "card = "<<card<<", skip index=" << cur->index << ",data="<<cur->data<<endl;
                 --skip; // 只有空位才计数
             }
         }
@@ -265,7 +272,8 @@ void CircularLinkedList::MagicCardWrong()//错误版
         // 找到下一个空位（如果当前位置非空，则继续找）
 
         cur->data = card;
-
+        cout << "confirm index=" << cur->index << ", card=" << card << endl;
+        this->PrintList();
         // 移动到下一个位置，为下一轮做准备
         cur = cur->next;
         if (cur == head)
@@ -276,9 +284,10 @@ void CircularLinkedList::MagicCardWrong()//错误版
 int main()
 {
     CircularLinkedList list;
-    list.MagicCard();
-    list.PrintList(); 
+    //list.MagicCard();
+    //list.PrintList(); 
     list.MagicCardWrong();
     list.PrintList();
+    system("pause");
     return 0;
 }
