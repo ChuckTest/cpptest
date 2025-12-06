@@ -118,6 +118,21 @@ public:
         }
     }
 
+    void PrintList()
+    {
+        Node *current = head->next;
+        while (current != NULL)
+        {
+            cout << current->data;
+            current = current->next;
+            if (current != NULL)
+            {
+                cout << "->";
+            }
+        }
+        cout << endl;
+    }
+
     ~LinkList()
     {
         Node *current = head;
