@@ -39,6 +39,14 @@ public:
 
     int GetSize()
     {
+        int size = 0;
+        Node *current = head->next;
+        while (current != NULL)
+        {
+            size++;
+            current = current->next;
+        }
+        return size;
     }
 
     DataType GetElement(int i) // 获取第i个节点,i从1开始
