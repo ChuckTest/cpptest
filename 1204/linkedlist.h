@@ -112,5 +112,13 @@ public:
 
     ~LinkList()
     {
+        Node *current = head->next;
+        Node *temp;
+        while (current != NULL)
+        {
+            temp = current->next;
+            delete current;
+            current = temp;
+        }
     }
 };
