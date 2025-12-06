@@ -14,6 +14,12 @@ int main()
     cout << list.GetSize() << endl;
     list.CreateListR();
     list.PrintList();
+    cout << "你想查询第几个节点？" << endl;
+    int i;
+    cin >> i;
+    cout << "******查询结果******" << endl;
+    cout << list.GetElement(i);
+    cout << endl;
     system("pause");
     return 0;
 }
