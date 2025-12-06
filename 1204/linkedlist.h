@@ -112,7 +112,7 @@ public:
 
     ~LinkList()
     {
-        Node *current = head->next;
+        Node *current = head;
         Node *temp;
         while (current != NULL)
         {
