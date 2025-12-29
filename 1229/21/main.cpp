@@ -37,8 +37,20 @@ public:
         tail = head;
     }
 
-    void AddNode(int valu)
+    void AddNode(int value)
     {
+        if(value<=0) return;
+        Node *newNode = new Node(value);
+        if(head->next == NULL)
+        {
+            head->next = newNode;
+            tail = newNode;
+        }
+        else
+        {
+            tail->next = newNode;
+            tail = newNode;
+        }
     }
 
     void PrintList()
