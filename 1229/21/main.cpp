@@ -119,6 +119,7 @@ public:
                     }
                     prev->next = temp->next;
                     delete temp;
+                    temp = temp->next;
                 }
                 else
                 {
@@ -141,6 +142,17 @@ public:
         while (current != NULL)
         {
             cout << current->data;
+            current = current->next;
+            if (current != NULL)
+            {
+                cout << "->";
+            }
+        }
+        cout << endl;
+        current = head->next;
+        while (current != NULL)
+        {
+            cout << &current;
             current = current->next;
             if (current != NULL)
             {
