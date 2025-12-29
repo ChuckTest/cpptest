@@ -39,9 +39,10 @@ public:
 
     void AddNode(int value)
     {
-        if(value<=0) return;
+        if (value <= 0)
+            return;
         Node *newNode = new Node(value);
-        if(head->next == NULL)
+        if (head->next == NULL)
         {
             head->next = newNode;
             tail = newNode;
@@ -51,6 +52,43 @@ public:
             tail->next = newNode;
             tail = newNode;
         }
+    }
+
+    int FindNode(int value)
+    {
+        Node *current = head->next;
+        int index = 0;
+        bool hasFound = false;
+        while (current != NULL)
+        {
+            index++;
+            if (current->data == value)
+            {
+                hasFound = true;
+                break;
+            }
+            else
+            {
+                current = current->next;
+            }
+        }
+        if (!hasFound)
+        {
+            index = 0;
+        }
+        return index;
+    }
+
+    int DeleteNode(int value)
+    {
+    }
+
+    int RemoveDuplicates()
+    {
+    }
+
+    void RverseList()
+    {
     }
 
     void PrintList()
@@ -77,7 +115,7 @@ void showMenu()
     cout << "2. 查找指定结点\n";
     cout << "3. 删除指定结点\n";
     cout << "4. 删除重复结点\n";
-    cout << "5. 打印链表\n";
+    cout << "5. 反转链表\n";
     cout << "0. 退出\n";
     cout << "请输入选择(0-5): ";
 }
@@ -92,18 +130,20 @@ int main()
     while (true)
     {
         showMenu();
+        cin >> choice;
         switch (choice)
         {
         case 1:
         {
             int value;
-            cout << "请输入整数，输入小于等于0的值结束输入：" << endl;
+            cout << "请输入整数，输入小于等于0的值结束输入：";
             while (true)
             {
                 cin >> value;
                 if (value <= 0)
                     break;
-                list.addNode(value);
+                list.AddNode(value);
+                cout << "请继续输入整数，输入小于等于0的值结束输入：";
             }
             cout << "链表创建完成！" << endl;
             list.PrintList();
@@ -115,14 +155,15 @@ int main()
             cout << "请输入要查找的结点值：";
             cin >> value;
             int index = list.FindNode(value);
-            if (index != -1)
+            if (index > 0)
             {
                 cout << "找到了该结点，它是第 " << index << " 个结点。" << endl;
             }
             else
             {
                 cout << "找不到此结点。" << endl;
-            }
+            }  
+            list.PrintList();
             break;
         }
         case 3:
@@ -130,7 +171,8 @@ int main()
             int value;
             cout << "请输入要删除的结点值：";
             cin >> value;
-            if (list.DeleteNode(value))
+            int index = list.DeleteNode(value);
+            if (index > 0)
             {
                 cout << "已经删除结点：" << value << endl;
             }
@@ -150,12 +192,14 @@ int main()
         }
         case 5:
         {
+            list.RverseList();
+            cout << "反转后的链表：";
             list.PrintList();
             break;
         }
-        case 6:
+        case 0:
             cout << "退出程序。" << endl;
-            return 0;
+            break;
         default:
             cout << "无效选择，请重新输入！" << endl;
         }
