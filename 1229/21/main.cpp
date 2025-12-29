@@ -138,6 +138,18 @@ public:
 
     void RverseList()
     {
+        //head->1->2->3-NULL
+        Node* prev = NULL;
+        Node* current = head->next;//1
+        Node* next = NULL;
+        while(current!= NULL)
+        {
+            next = current->next; //保存下一个结点 2
+            current->next = prev; //反转当前结点的指针 1->NULL。第二次处理的时候，prev相当于原来的第一个结点
+            prev = current; //prev指向当前结点 1，在处理下一个结点的时候，会用到1
+            current = next; //下一个待处理的结点 2
+        }
+        head->next = prev; //头结点指向新的第一个结点
     }
 
     void PrintList()
