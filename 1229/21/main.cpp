@@ -106,9 +106,9 @@ public:
         Node *start = head->next;
         while (start != NULL)
         {
-            Node *temp = start->next;
-            Node *nextStart = temp;
             Node *prev = start;
+            Node *temp = prev->next;
+            Node *nextStart = temp;
             while (temp != NULL)
             {
                 if (start->data == temp->data)
@@ -117,6 +117,10 @@ public:
                     {
                         nextStart = temp->next;
                     }
+                    if (temp->next == NULL)
+                    {
+                        tail = prev;
+                    }
                     prev->next = temp->next;
                     delete temp;
                     temp = prev->next;
@@ -124,7 +128,7 @@ public:
                 else
                 {
                     prev = temp;
-                    temp = temp->next;
+                    temp = prev->next;
                 }
             }
             start = nextStart;
