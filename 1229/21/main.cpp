@@ -119,7 +119,7 @@ public:
                     }
                     prev->next = temp->next;
                     delete temp;
-                    temp = temp->next;
+                    temp = prev->next;
                 }
                 else
                 {
@@ -152,7 +152,7 @@ public:
         current = head->next;
         while (current != NULL)
         {
-            cout << &current;
+            cout << current;
             current = current->next;
             if (current != NULL)
             {
