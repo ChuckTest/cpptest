@@ -103,6 +103,31 @@ public:
 
     int RemoveDuplicates()
     {
+        Node *start = head->next;
+        while (start != NULL)
+        {
+            Node *temp = start->next;
+            Node *nextStart = temp;
+            Node *prev = start;
+            while (temp != NULL)
+            {
+                if (start->data == temp->data)
+                {
+                    if (nextStart == temp)
+                    {
+                        nextStart = temp->next;
+                    }
+                    prev->next = temp->next;
+                    delete temp;
+                }
+                else
+                {
+                    prev = temp;
+                    temp = temp->next;
+                }
+            }
+            start = nextStart;
+        }
         return 0;
     }
 
