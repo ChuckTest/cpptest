@@ -79,12 +79,31 @@ public:
         return index;
     }
 
-    int DeleteNode(int value)
+    bool DeleteNode(int value)
     {
+        Node *previous = head;
+        Node *current = head->next;
+        while (current != NULL)
+        {
+            if (current->data == value)
+            {
+                previous->next = current->next;
+                delete current;
+                if (current == tail)
+                {
+                    tail = previous;
+                }
+                return true;
+            }
+            previous = current;
+            current = current->next;
+        }
+        return false;
     }
 
     int RemoveDuplicates()
     {
+        return 0;
     }
 
     void RverseList()
@@ -162,7 +181,7 @@ int main()
             else
             {
                 cout << "找不到此结点。" << endl;
-            }  
+            }
             list.PrintList();
             break;
         }
@@ -171,8 +190,8 @@ int main()
             int value;
             cout << "请输入要删除的结点值：";
             cin >> value;
-            int index = list.DeleteNode(value);
-            if (index > 0)
+            bool deleted = list.DeleteNode(value);
+            if (deleted)
             {
                 cout << "已经删除结点：" << value << endl;
             }
