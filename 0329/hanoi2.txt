@@ -1,5 +1,0 @@
-2
-steps1:1 from A to B
-steps2:2 from A to C
-
-steps3:1 from B to C
