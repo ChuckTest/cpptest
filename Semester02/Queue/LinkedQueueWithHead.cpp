@@ -1,52 +1,55 @@
-#include <iostream>
 #include "LinkedQueueWithHead.h"
+#include <iostream>
 
-class LinkedQueueWithHead {
-private:
-    Node* front; // 始终指向头结点
-    Node* rear;  // 指向队尾节点
+// 构造函数
+LinkedQueueWithHead::LinkedQueueWithHead() {
+    front = rear = new Node(); 
+}
 
-public:
-    LinkedQueueWithHead() {
-        // 初始化：创建一个附加头结点
-        front = rear = new Node(); 
+// 析构函数
+LinkedQueueWithHead::~LinkedQueueWithHead() {
+    while (front) {
+        Node* temp = front;
+        front = front->next;
+        delete temp;
+    }
+}
+
+// 入队
+void LinkedQueueWithHead::enqueue(int val) {
+    Node* newNode = new Node(val);
+    rear->next = newNode;
+    rear = newNode;
+}
+
+// 出队
+bool LinkedQueueWithHead::dequeue(int& val) {
+    if (isEmpty()) return false;
+
+    Node* firstNode = front->next; 
+    val = firstNode->data;
+    front->next = firstNode->next;
+
+    if (rear == firstNode) {
+        rear = front;
     }
 
-    ~LinkedQueueWithHead() {
-        while (front) {
-            Node* temp = front;
-            front = front->next;
-            delete temp;
-        }
+    delete firstNode;
+    return true;
+}
+
+// 关键点：必须带上 const，与 .h 文件完全匹配
+bool LinkedQueueWithHead::isEmpty() const {
+    return front == rear;
+}
+
+// 关键点：必须带上 const，且实现获取长度的逻辑
+int LinkedQueueWithHead::getSize() const {
+    int count = 0;
+    Node* p = front->next; // 从第一个有效节点开始数
+    while (p) {
+        count++;
+        p = p->next;
     }
-
-    // 入队：无论队列是否为空，逻辑完全一致
-    void enqueue(int val) {
-        Node* newNode = new Node(val);
-        rear->next = newNode; // 直接连在 rear 后面
-        rear = newNode;       // 移动 rear 到新节点
-    }
-
-    // 出队
-    bool dequeue(int& val) {
-        if (isEmpty()) return false;
-
-        // 注意：真正的队头是头结点的下一个节点
-        Node* firstNode = front->next; 
-        val = firstNode->data;
-
-        front->next = firstNode->next; // 头结点指向第二个元素
-
-        // 特殊处理：如果删掉的是最后一个节点，需重置 rear
-        if (rear == firstNode) {
-            rear = front;
-        }
-
-        delete firstNode;
-        return true;
-    }
-
-    bool isEmpty() {
-        return front == rear;
-    }
-};
+    return count;
+}

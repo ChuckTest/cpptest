@@ -16,6 +16,7 @@ public:
     bool enqueue(int value);
     bool dequeue(int &val);
     int getSize();
+    void display();
 };
 
 #endif
