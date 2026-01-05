@@ -2,20 +2,13 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: g++.exe build active file",
-            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+            "label": "C/C++: g++.exe 生成活动文件",
+            "command": "g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
-                "-g",
-                "-O0",//(Zero optimization / No optimization): 不进行任何优化。
-                "-std=c++20", // <-- 添加这一行，或者使用 -std=c++20
-                "-fno-elide-constructors", // 禁用构造函数消除
-                "-fno-tree-reassoc", // 禁用树重关联优化
-                "-fno-tree-dce", // 禁用死代码消除
-                "-Wall", // 启用所有警告
-                "-pedantic", // 启用严格的标准兼容性检查
-                "${file}",
-                "-o",
+                "-g",          // 保留调试信息
+                "${file}",     // 编译当前打开的文件
+                "-o",          // 输出可执行文件
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
@@ -26,38 +19,9 @@
             ],
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": true  // 设置为默认编译任务
             },
-            "detail": "使用g++.exe"
-        },
-        {
-            "type": "shell",
-            "label": "C/C++: g++ 编译所有文件",
-            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${fileDirname}\\*.cpp",         // 关键修改：编译当前文件夹下所有 cpp
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe" 
-            ],
-            "options": {
-                "cwd": "${fileDirname}",
-                "shell": {
-                    "executable": "powershell.exe",
-                    "args": [
-                        "-Command"
-                    ]
-                }
-            },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "detail": "编译目录下的所有cpp文件并链接"
+            "detail": "编译器: g++.exe"
         }
     ],
     "version": "2.0.0"
