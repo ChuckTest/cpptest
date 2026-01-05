@@ -27,7 +27,7 @@
                 }
             ],
             // Make sure this task uses the correct g++ path and builds the active file
-            "preLaunchTask": "C/C++: g++.exe build active file"
+            "preLaunchTask": "C/C++: g++ 编译所有文件"
         },
         {
             "name": "C/C++: cl.exe build and debug active file",
