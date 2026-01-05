@@ -2,26 +2,6 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: cl.exe build active file",
-            "command": "cl.exe",
-            "args": [
-                "/Zi",
-                "/EHsc",
-                "/nologo",
-                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${file}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$msCompile"
-            ],
-            "group": "build",
-            "detail": "使用cl.exe"
-        },
-        {
-            "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
             "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
@@ -51,7 +31,7 @@
             "detail": "使用g++.exe"
         },
         {
-            "type": "cppbuild",
+            "type": "shell",
             "label": "C/C++: g++ 编译所有文件",
             "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
@@ -62,7 +42,13 @@
                 "${fileDirname}\\${fileBasenameNoExtension}.exe" 
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${fileDirname}",
+                "shell": {
+                    "executable": "powershell.exe",
+                    "args": [
+                        "-Command"
+                    ]
+                }
             },
             "problemMatcher": [
                 "$gcc"
