@@ -1,4 +1,5 @@
 #include <iostream>
+#include "CircularQueue.h"
 
 class CircularQueue {
 private:

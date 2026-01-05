@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cassert>
 #include <string>
+#include "CircularQueue.h"
+#include "LinkedQueueWithHead.h"
 
 // --- 单元测试类 ---
 class QueueTester {
