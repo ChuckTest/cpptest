@@ -275,7 +275,7 @@ int main()
         }
         case 0:
             cout << "退出程序。" << endl;
-            break;
+            return 0;
         default:
             cout << "无效选择，请重新输入！" << endl;
         }
