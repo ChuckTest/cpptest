@@ -1,17 +1,17 @@
-#include "pch.h" // Èç¹ûÊÇ VS ×Ô¶¯Éú³ÉµÄÏîÄ¿ĞèÒª±£Áô
+ï»¿#include "pch.h" // å¦‚æœæ˜¯ VS è‡ªåŠ¨ç”Ÿæˆçš„é¡¹ç›®éœ€è¦ä¿ç•™
 #include "CircularQueue.h"
 #include "LinkedQueueWithHead.h"
 
-// --- ²âÊÔÑ­»·¶ÓÁĞ (CircularQueue) ---
+// --- æµ‹è¯•å¾ªç¯é˜Ÿåˆ— (CircularQueue) ---
 TEST(CircularQueueTest, BasicOperations) {
     int capacity = 4;
     CircularQueue q(capacity);
 
-    // A. ³õÊ¼×´Ì¬²âÊÔ
+    // A. åˆå§‹çŠ¶æ€æµ‹è¯•
     EXPECT_TRUE(q.isEmpty());
     EXPECT_EQ(q.getSize(), 0);
 
-    // B. »ù´¡Èë¶Ó³ö¶ÓÓë FIFO ²âÊÔ
+    // B. åŸºç¡€å…¥é˜Ÿå‡ºé˜Ÿä¸ FIFO æµ‹è¯•
     q.enqueue(10);
     q.enqueue(20);
     EXPECT_EQ(q.getSize(), 2);
@@ -21,25 +21,25 @@ TEST(CircularQueueTest, BasicOperations) {
     EXPECT_EQ(val, 10);
     EXPECT_EQ(q.getSize(), 1);
 
-    // C. Âú×´Ì¬À¹½Ø²âÊÔ
+    // C. æ»¡çŠ¶æ€æ‹¦æˆªæµ‹è¯•
     q.enqueue(30);
     q.enqueue(40);
     q.enqueue(50);
     EXPECT_TRUE(q.isFull());
-    EXPECT_FALSE(q.enqueue(60)); // Ó¦¸ÃÊ§°Ü£¬·µ»Ø false
+    EXPECT_FALSE(q.enqueue(60)); // åº”è¯¥å¤±è´¥ï¼Œè¿”å› false
 
-    // D. Ñ­»·ÈÆ»Ø²âÊÔ
+    // D. å¾ªç¯ç»•å›æµ‹è¯•
     EXPECT_TRUE(q.dequeue(val));
     EXPECT_EQ(val, 20);
-    EXPECT_TRUE(q.enqueue(60));  // ²âÊÔÈÆ»ØĞ´Èë
+    EXPECT_TRUE(q.enqueue(60));  // æµ‹è¯•ç»•å›å†™å…¥
     EXPECT_EQ(q.getSize(), 4);
 }
 
-// --- ²âÊÔÁ´Ê½¶ÓÁĞ (LinkedQueueWithHead) ---
+// --- æµ‹è¯•é“¾å¼é˜Ÿåˆ— (LinkedQueueWithHead) ---
 TEST(LinkedQueueTest, EmptyQueueBehavior) {
     LinkedQueueWithHead q;
     int val;
-    // A. ¿Õ¶ÓÁĞ³ö¶Ó²âÊÔ
+    // A. ç©ºé˜Ÿåˆ—å‡ºé˜Ÿæµ‹è¯•
     EXPECT_FALSE(q.dequeue(val));
 }
 
@@ -47,15 +47,15 @@ TEST(LinkedQueueTest, PressureTest) {
     LinkedQueueWithHead q;
     int val;
 
-    // B. ´óÊı¾İÁ¿Ñ¹Á¦²âÊÔ
+    // B. å¤§æ•°æ®é‡å‹åŠ›æµ‹è¯•
     for (int i = 0; i < 1000; i++) {
         q.enqueue(i);
     }
     EXPECT_FALSE(q.isEmpty());
 
-    // C. ³¹µ×Çå¿ÕºóµÄ×´Ì¬²âÊÔ
+    // C. å½»åº•æ¸…ç©ºåçš„çŠ¶æ€æµ‹è¯•
     for (int i = 0; i < 1000; i++) {
-        ASSERT_TRUE(q.dequeue(val)); // Èç¹ûÕâÀïÊ§°Ü£¬ºóÃæÃ»±ØÒª±È¶ÔÁË£¬ËùÒÔÓÃ ASSERT
+        ASSERT_TRUE(q.dequeue(val)); // å¦‚æœè¿™é‡Œå¤±è´¥ï¼Œåé¢æ²¡å¿…è¦æ¯”å¯¹äº†ï¼Œæ‰€ä»¥ç”¨ ASSERT
         EXPECT_EQ(val, i);
     }
     EXPECT_TRUE(q.isEmpty());
@@ -65,7 +65,7 @@ TEST(LinkedQueueTest, BoundaryReset) {
     LinkedQueueWithHead q;
     int val;
 
-    // D. ±ß½ç£º×îºóÒ»¸öÔªËØ³ö¶Óºó rear µÄÖØÖÃÑéÖ¤
+    // D. è¾¹ç•Œï¼šæœ€åä¸€ä¸ªå…ƒç´ å‡ºé˜Ÿå rear çš„é‡ç½®éªŒè¯
     q.enqueue(99);
     EXPECT_TRUE(q.dequeue(val));
     EXPECT_TRUE(q.isEmpty());
